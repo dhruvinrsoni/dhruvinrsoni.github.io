@@ -55,7 +55,8 @@ Cross-platform productivity scripts — batch, PowerShell, shell, registry tweak
 ### Meta
 
 **👤 [Profile README](https://github.com/dhruvinrsoni/dhruvinrsoni)** — *GitHub Profile*
-The README that renders on the GitHub profile.
+The README that renders on the GitHub profile — also deployed via Pages.
+[Live](https://dhruvinrsoni.github.io/dhruvinrsoni/) · [Profile](https://github.com/dhruvinrsoni) · [Repo](https://github.com/dhruvinrsoni/dhruvinrsoni)
 
 **🏠 [This Site](https://github.com/dhruvinrsoni/dhruvinrsoni.github.io)** — *Portfolio*
 Source for the dashboard. [Live](https://dhruvinrsoni.github.io/)
