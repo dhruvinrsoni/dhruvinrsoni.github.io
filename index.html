@@ -672,6 +672,26 @@
         primary: 'live'
       },
       {
+        id: 'todolistapp', name: 'To-Do List PWA', emoji: '✅',
+        type: 'PWA',
+        desc: 'Installable React to-do list — Progressive Web App hosted on Firebase.',
+        repo: 'https://github.com/dhruvinrsoni/todolistapp',
+        live: 'https://todolist-dhruvinsoni.firebaseapp.com/',
+        primary: 'live'
+      },
+      {
+        id: 'writing-blogs', name: 'Writing & Blogs', emoji: '✍️',
+        type: 'Writing',
+        desc: 'Started with a GenAI piece, now organized into two Notion indexes — Technical Blogs and General Blogs.',
+        live: 'https://dhruvinrsoni.notion.site/Learning-on-the-edge-Technical-Blogs-and-Articles-2d197971458a80cabfd9c2494d3b3abe',
+        liveLabel: 'Tech Blogs',
+        primary: 'live',
+        extras: [
+          { label: 'General Blogs', url: 'https://dhruvinrsoni.notion.site/Around-and-Beyond-Horizon-Blogs-and-Articles-2d197971458a803abf7be8245577b65b', icon: 'external' },
+          { label: 'GenAI · origin', url: 'https://dhruvinrsoni.notion.site/Future-with-GenAI-as-of-Aug-25-25997971458a801f8fd9e3bfa1797aa3', icon: 'external' }
+        ]
+      },
+      {
         id: 'dhruvinrsoni-github-io', name: 'This Site', emoji: '🏠',
         type: 'Portfolio',
         desc: "The dashboard you're reading right now — a hub for everything above.",
@@ -714,9 +734,17 @@
         );
       };
       make('webstore', 'Web Store', 'store', p.primary === 'webstore');
-      make('live', 'Live', 'live', p.primary === 'live');
+      make('live', p.liveLabel || 'Live', 'live', p.primary === 'live');
       make('repo', 'Repo', 'github', p.primary === 'repo');
       make('producthunt', 'Product Hunt', 'hunt', false);
+      if (Array.isArray(p.extras)) {
+        p.extras.forEach(e => {
+          items.push(
+            `<a class="action-link" href="${escapeHtml(e.url)}" target="_blank" rel="noopener">` +
+            `${ICONS[e.icon || 'external']}<span>${escapeHtml(e.label)}</span></a>`
+          );
+        });
+      }
       return items.join('');
     }
 

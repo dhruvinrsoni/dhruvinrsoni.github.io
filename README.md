@@ -38,6 +38,10 @@ Offline-first nano-apps incubator — Vaak-Smith and GenAI-Yukti-Deck inside.
 Angular + Spring MVC ordering demo running on Tomcat.
 [Live](https://dhruvinrsoni.github.io/online-pizza-ordering-system/) · [Repo](https://github.com/dhruvinrsoni/online-pizza-ordering-system)
 
+**✅ [To-Do List PWA](https://github.com/dhruvinrsoni/todolistapp)** — *PWA*
+Installable React to-do list — Progressive Web App hosted on Firebase.
+[Live](https://todolist-dhruvinsoni.firebaseapp.com/) · [Repo](https://github.com/dhruvinrsoni/todolistapp)
+
 ### AI / Tooling
 
 **🌿 [Agentskills Garden](https://github.com/dhruvinrsoni/agentskills-garden)** — *AI Skill Library*
@@ -51,6 +55,12 @@ Angular + Spring MVC ordering demo running on Tomcat.
 **⚡ [Power User Scripts](https://github.com/dhruvinrsoni/power-user-scripts)** — *Toolbox*
 Cross-platform productivity scripts — batch, PowerShell, shell, registry tweaks.
 [Repo](https://github.com/dhruvinrsoni/power-user-scripts)
+
+### Writing
+
+**✍️ Writing & Blogs** — *Notion*
+Started with a GenAI piece, now organized into two Notion indexes — Technical Blogs and General Blogs.
+[Tech Blogs](https://dhruvinrsoni.notion.site/Learning-on-the-edge-Technical-Blogs-and-Articles-2d197971458a80cabfd9c2494d3b3abe) · [General Blogs](https://dhruvinrsoni.notion.site/Around-and-Beyond-Horizon-Blogs-and-Articles-2d197971458a803abf7be8245577b65b) · [GenAI · origin](https://dhruvinrsoni.notion.site/Future-with-GenAI-as-of-Aug-25-25997971458a801f8fd9e3bfa1797aa3)
 
 ### Meta
 
