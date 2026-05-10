@@ -152,6 +152,19 @@
       flex-wrap: wrap;
       gap: 6px;
     }
+    .profile-deeplinks {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+    .profile-deeplinks-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-right: 2px;
+    }
     .pill {
       display: inline-flex;
       align-items: center;
@@ -412,11 +425,35 @@
       color: var(--text-muted);
       font-size: 12px;
       display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+    footer.site a { color: var(--text-muted); }
+    .footer-deeplinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      align-items: baseline;
+      font-size: 12.5px;
+    }
+    .footer-deeplinks a {
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .footer-deeplinks-label {
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .footer-meta {
+      display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 8px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
     }
-    footer.site a { color: var(--text-muted); }
 
     /* QR modal */
     .modal-backdrop {
@@ -584,6 +621,9 @@
         <a class="pill" href="https://www.instagram.com/dhruvinrsoni" target="_blank" rel="noopener">Instagram</a>
         <a class="pill" href="https://credly.com/users/dhruvinrsoni" target="_blank" rel="noopener">Credly</a>
       </div>
+      <div class="profile-deeplinks" aria-label="Profile site quick sections">
+        <span class="profile-deeplinks-label">/dhruvinrsoni →</span>
+      </div>
     </header>
 
     <main>
@@ -631,8 +671,13 @@
     </main>
 
     <footer class="site">
-      <span>© <span id="year"></span> Dhruvin Soni · <a href="https://github.com/dhruvinrsoni/dhruvinrsoni.github.io" target="_blank" rel="noopener">View source</a></span>
-      <span>Built as a single-file dashboard · responsive · share-friendly</span>
+      <div class="footer-deeplinks" aria-label="More from /dhruvinrsoni">
+        <span class="footer-deeplinks-label">From /dhruvinrsoni:</span>
+      </div>
+      <div class="footer-meta">
+        <span>© <span id="year"></span> Dhruvin Soni · <a href="https://github.com/dhruvinrsoni/dhruvinrsoni.github.io" target="_blank" rel="noopener">View source</a></span>
+        <span>Built as a single-file dashboard · responsive · share-friendly</span>
+      </div>
     </footer>
   </div>
 
@@ -724,9 +769,9 @@
         primary: 'repo'
       },
       {
-        id: 'dhruvinrsoni-profile', name: 'Profile README', emoji: '👤',
-        type: 'GitHub Profile',
-        desc: 'The README that renders on the GitHub profile — also deployed via Pages.',
+        id: 'dhruvinrsoni-profile', name: '/dhruvinrsoni', emoji: '👋',
+        type: 'Profile Site',
+        desc: 'My personal profile site — about me, tech stack, journey, blogs, badges, and more.',
         repo: 'https://github.com/dhruvinrsoni/dhruvinrsoni',
         live: 'https://dhruvinrsoni.github.io/dhruvinrsoni/',
         primary: 'live'
@@ -763,6 +808,23 @@
 
     const PAGE_URL = 'https://dhruvinrsoni.github.io/';
     const PAGE_TITLE = 'Dhruvin Soni — Portfolio Dashboard';
+
+    // /dhruvinrsoni profile-site cross-links — single source of truth.
+    // If the profile README is edited and Jekyll regenerates anchors,
+    // update only the slugs below; both header and footer reflect them.
+    const PROFILE_BASE = 'https://dhruvinrsoni.github.io/dhruvinrsoni/';
+    const PROFILE_DEEPLINKS = {
+      header: [
+        { label: 'About',      anchor: '#-about-me' },
+        { label: 'Tech Stack', anchor: '#-tech-stack' },
+        { label: 'Contact',    anchor: '#-how-to-reach-me' }
+      ],
+      footer: [
+        { label: 'Journey',    anchor: '#-timeline-of-achievements' },
+        { label: 'Blogs',      anchor: '#blogs' },
+        { label: 'Badges',     anchor: '#badgescertificates' }
+      ]
+    };
 
     // ---------- Utils ----------
     const $ = (sel, root = document) => root.querySelector(sel);
@@ -950,6 +1012,25 @@
       });
     }
 
+    // ---------- /dhruvinrsoni deep-links ----------
+    function renderProfileDeeplinks() {
+      const renderInto = (sel, items, asPills) => {
+        const root = document.querySelector(sel);
+        if (!root) return;
+        items.forEach(d => {
+          const a = document.createElement('a');
+          if (asPills) a.className = 'pill';
+          a.href = PROFILE_BASE + d.anchor;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = d.label;
+          root.appendChild(a);
+        });
+      };
+      renderInto('.profile-deeplinks', PROFILE_DEEPLINKS.header, true);
+      renderInto('.footer-deeplinks', PROFILE_DEEPLINKS.footer, false);
+    }
+
     // ---------- Scroll-to-bottom button ----------
     function initScrollBottom() {
       const btn = $('#scroll-bottom');
@@ -978,6 +1059,7 @@
       bindCardEvents();
       bindHeaderEvents();
       initTheme();
+      renderProfileDeeplinks();
       initScrollBottom();
     });
   </script>

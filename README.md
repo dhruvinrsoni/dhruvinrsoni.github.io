@@ -6,6 +6,8 @@
 
 [GitHub](https://github.com/dhruvinrsoni) · [LinkedIn](https://www.linkedin.com/in/dhruvinrsoni/) · [X / Twitter](https://twitter.com/dhruvinrsoni) · [YouTube](https://www.youtube.com/@dhruvinrsoni) · [Credly](https://credly.com/users/dhruvinrsoni)
 
+**/dhruvinrsoni →** [About](https://dhruvinrsoni.github.io/dhruvinrsoni/#-about-me) · [Tech Stack](https://dhruvinrsoni.github.io/dhruvinrsoni/#-tech-stack) · [Contact](https://dhruvinrsoni.github.io/dhruvinrsoni/#-how-to-reach-me)
+
 ---
 
 ## Projects
@@ -64,8 +66,8 @@ Started with a GenAI piece, now organized into two Notion indexes — Technical 
 
 ### Meta
 
-**👤 [Profile README](https://github.com/dhruvinrsoni/dhruvinrsoni)** — *GitHub Profile*
-The README that renders on the GitHub profile — also deployed via Pages.
+**👋 [/dhruvinrsoni](https://dhruvinrsoni.github.io/dhruvinrsoni/)** — *Profile Site*
+My personal profile site — about me, tech stack, journey, blogs, badges, and more.
 [Live](https://dhruvinrsoni.github.io/dhruvinrsoni/) · [Profile](https://github.com/dhruvinrsoni) · [Repo](https://github.com/dhruvinrsoni/dhruvinrsoni)
 
 **🏠 [This Site](https://github.com/dhruvinrsoni/dhruvinrsoni.github.io)** — *Portfolio*
@@ -82,5 +84,7 @@ Source for the dashboard. [Live](https://dhruvinrsoni.github.io/)
 **Coding** — [LeetCode](https://leetcode.com/u/dhruvinrsoni/) · [HackerRank](https://www.hackerrank.com/profile/DhruvinSoni) · [CodeChef](https://www.codechef.com/users/dhruvinrsoni) · [GeeksforGeeks](https://www.geeksforgeeks.org/user/dhruvinrsoni/)
 
 ---
+
+**From /dhruvinrsoni:** [Journey](https://dhruvinrsoni.github.io/dhruvinrsoni/#-timeline-of-achievements) · [Blogs](https://dhruvinrsoni.github.io/dhruvinrsoni/#blogs) · [Badges](https://dhruvinrsoni.github.io/dhruvinrsoni/#badgescertificates)
 
 > 📱 For a phone-friendly dashboard with **copy-link, native share, and QR codes** per project, open the live site: <https://dhruvinrsoni.github.io/>
