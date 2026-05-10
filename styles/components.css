@@ -352,3 +352,50 @@ article.card.featured {
   .scroll-bottom-btn { bottom: 24px; right: 24px; width: 52px; height: 52px; }
   .scroll-bottom-btn svg { width: 24px; height: 24px; }
 }
+
+/* ----- Scroll-to-top FAB (mirror of scroll-bottom, top-right) ----- */
+.scroll-top-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.18s ease, transform 0.18s ease, border-color 0.15s, background 0.15s;
+}
+.scroll-top-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.scroll-top-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-elev);
+}
+.scroll-top-btn:active { transform: scale(0.94); }
+.scroll-top-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (min-width: 700px) {
+  .scroll-top-btn { top: 24px; right: 24px; width: 52px; height: 52px; }
+  .scroll-top-btn svg { width: 24px; height: 24px; }
+}

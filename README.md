@@ -50,7 +50,7 @@ Installable React to-do list — Progressive Web App hosted on Firebase.
 
 **🌿 [Agentskills Garden](https://github.com/dhruvinrsoni/agentskills-garden)** — *AI Skill Library*
 88 hierarchical AI-agent skills, constitution-driven (Satya · Dharma · Ahimsa · Pragya).
-[Repo](https://github.com/dhruvinrsoni/agentskills-garden)
+[Live](https://dhruvinrsoni.github.io/agentskills-garden/) · [Repo](https://github.com/dhruvinrsoni/agentskills-garden)
 
 **🧱 [Project Templates](https://github.com/dhruvinrsoni/project-templates)** — *Scaffolder*
 8 production-ready template flavors — Node, React PWA, Chrome ext, Spring, Python.
@@ -58,7 +58,7 @@ Installable React to-do list — Progressive Web App hosted on Firebase.
 
 **⚡ [Power User Scripts](https://github.com/dhruvinrsoni/power-user-scripts)** — *Toolbox*
 Cross-platform productivity scripts — batch, PowerShell, shell, registry tweaks.
-[Repo](https://github.com/dhruvinrsoni/power-user-scripts)
+[Live](https://dhruvinrsoni.github.io/power-user-scripts/) · [Repo](https://github.com/dhruvinrsoni/power-user-scripts)
 
 ### Writing
 

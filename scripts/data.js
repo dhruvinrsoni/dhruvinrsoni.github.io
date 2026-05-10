@@ -59,7 +59,8 @@ const PROJECTS = [
     type: 'AI Skill Library',
     desc: '88 hierarchical AI-agent skills, constitution-driven (Satya · Dharma · Ahimsa · Pragya).',
     repo: 'https://github.com/dhruvinrsoni/agentskills-garden',
-    primary: 'repo'
+    live: 'https://dhruvinrsoni.github.io/agentskills-garden/',
+    primary: 'live'
   },
   {
     id: 'project-templates', name: 'Project Templates', emoji: '🧱',
@@ -73,7 +74,8 @@ const PROJECTS = [
     type: 'Toolbox',
     desc: 'Cross-platform productivity scripts — batch, PowerShell, shell, registry tweaks.',
     repo: 'https://github.com/dhruvinrsoni/power-user-scripts',
-    primary: 'repo'
+    live: 'https://dhruvinrsoni.github.io/power-user-scripts/',
+    primary: 'live'
   },
   {
     id: 'dhruvinrsoni-profile', name: '/dhruvinrsoni', emoji: '👋',

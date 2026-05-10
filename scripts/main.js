@@ -13,5 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProfileDeeplinks();
   initSortBar();
   initViewBar();
+  initScrollTop();
   initScrollBottom();
 });

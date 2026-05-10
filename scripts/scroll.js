@@ -1,5 +1,5 @@
-// scroll.js — round bottom-right scroll-to-bottom FAB; auto-hides near top/bottom.
-// Owns: initScrollBottom.
+// scroll.js — round scroll FABs (top-right "go up", bottom-right "go down").
+// Owns: initScrollTop, initScrollBottom.
 // Depends on: data.js ($).
 
 function initScrollBottom() {
@@ -14,6 +14,20 @@ function initScrollBottom() {
   };
   btn.addEventListener('click', () => {
     window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+  });
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+}
+
+function initScrollTop() {
+  const btn = $('#scroll-top');
+  if (!btn) return;
+  const update = () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  };
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
