@@ -1,0 +1,62 @@
+/* views.css — view-mode overrides for List and Compact.
+ * Owns: layout/styling adjustments when [data-view] attribute is set on <main>.
+ * Depends on: components.css (the .card and .grid base rules being overridden).
+ */
+
+/* ----- View toggle: list ----- */
+[data-view="list"] .grid {
+  grid-template-columns: 1fr !important;
+  gap: 10px;
+}
+[data-view="list"] article.card {
+  flex-direction: row;
+  align-items: stretch;
+  gap: 14px;
+  padding: 12px 14px;
+}
+[data-view="list"] article.card.featured {
+  background: var(--bg-card);
+  border-color: var(--border);
+  border-left: 3px solid var(--accent);
+}
+[data-view="list"] .card-head { flex: 0 0 auto; }
+[data-view="list"] .card-emoji { font-size: 22px; width: 32px; height: 32px; }
+[data-view="list"] .card-desc { font-size: 13px; }
+[data-view="list"] .card-share { padding-top: 6px; border-top: 0; }
+@media (min-width: 800px) {
+  [data-view="list"] article.card { align-items: center; }
+  [data-view="list"] .card-share { margin-left: auto; padding-top: 0; }
+}
+
+/* ----- View toggle: compact ----- */
+[data-view="compact"] .grid {
+  grid-template-columns: 1fr !important;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+[data-view="compact"] article.card {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  box-shadow: none;
+}
+[data-view="compact"] article.card:hover {
+  background: var(--bg-elev);
+  transform: none;
+}
+[data-view="compact"] article.card.featured { background: transparent; }
+[data-view="compact"] .card-emoji { font-size: 18px; width: 24px; height: 24px; }
+[data-view="compact"] .card-title-block { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; }
+[data-view="compact"] .card-title h3 { font-size: 14px; }
+[data-view="compact"] .type-pill { margin-top: 0; }
+[data-view="compact"] .card-desc,
+[data-view="compact"] .card-actions,
+[data-view="compact"] .card-share .card-share-label,
+[data-view="compact"] .card-share .js-share,
+[data-view="compact"] .card-share .js-qr { display: none; }
+[data-view="compact"] .card-share { padding: 0; border-top: 0; }
+[data-view="compact"] .card-share .icon-btn { width: 32px; height: 32px; }
