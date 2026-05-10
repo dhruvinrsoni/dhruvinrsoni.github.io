@@ -173,14 +173,39 @@
       background: var(--bg-elev);
       border: 1px solid var(--border);
       border-radius: 999px;
+      font-family: inherit;
       font-size: 13px;
       color: var(--text);
       font-weight: 500;
       min-height: 36px;
+      cursor: pointer;
     }
     .pill:hover {
       border-color: var(--border-strong);
       text-decoration: none;
+    }
+    .pill.active {
+      background: var(--accent);
+      color: var(--accent-fg);
+      border-color: var(--accent);
+    }
+    .pill.active:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .sort-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin: 4px 0 14px;
+    }
+    .sort-bar-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-right: 2px;
     }
 
     .icon-btn {
@@ -632,6 +657,14 @@
           <h2>Projects</h2>
           <span class="count" id="project-count"></span>
         </div>
+        <div class="sort-bar" role="toolbar" aria-label="Sort projects">
+          <span class="sort-bar-label">Sort:</span>
+          <button class="pill" type="button" data-sort="default">Default</button>
+          <button class="pill" type="button" data-sort="name-asc">A → Z</button>
+          <button class="pill" type="button" data-sort="name-desc">Z → A</button>
+          <button class="pill" type="button" data-sort="type">By Type</button>
+          <button class="pill" type="button" data-sort="url">By URL</button>
+        </div>
         <div id="grid" class="grid"></div>
       </section>
 
@@ -904,10 +937,45 @@
       `;
     }
 
+    // ---------- Sort state ----------
+    const SORTS = {
+      'default':   null,
+      'name-asc':  (a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }),
+      'name-desc': (a, b) => b.name.localeCompare(a.name, undefined, { sensitivity: 'base' }),
+      'type':      (a, b) => a.type.localeCompare(b.type) || a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }),
+      'url':       (a, b) => primaryUrlOf(a).localeCompare(primaryUrlOf(b))
+    };
+    let currentSort = localStorage.getItem('sort-mode');
+    if (!(currentSort in SORTS)) currentSort = 'default';
+
+    function sortedProjects() {
+      const cmp = SORTS[currentSort];
+      return cmp ? [...PROJECTS].sort(cmp) : PROJECTS;
+    }
+
     function renderGrid() {
       const grid = $('#grid');
-      grid.innerHTML = PROJECTS.map(renderCard).join('');
+      grid.innerHTML = sortedProjects().map(renderCard).join('');
       $('#project-count').textContent = `${PROJECTS.length} repos`;
+    }
+
+    function initSortBar() {
+      const bar = $('.sort-bar');
+      if (!bar) return;
+      const sync = () => {
+        bar.querySelectorAll('button[data-sort]').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.sort === currentSort);
+        });
+      };
+      sync();
+      bar.addEventListener('click', (ev) => {
+        const btn = ev.target.closest('button[data-sort]');
+        if (!btn) return;
+        currentSort = btn.dataset.sort;
+        localStorage.setItem('sort-mode', currentSort);
+        sync();
+        renderGrid();
+      });
     }
 
     // ---------- Share / Copy / QR handlers ----------
@@ -1060,6 +1128,7 @@
       bindHeaderEvents();
       initTheme();
       renderProfileDeeplinks();
+      initSortBar();
       initScrollBottom();
     });
   </script>
