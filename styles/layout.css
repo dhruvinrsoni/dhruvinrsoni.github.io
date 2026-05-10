@@ -4,7 +4,7 @@
  */
 
 .container {
-  max-width: 1180px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 20px 16px 48px;
 }
@@ -51,7 +51,7 @@ header.site {
   color: var(--text-muted);
   font-size: 14.5px;
   margin: 0;
-  max-width: 720px;
+  /* No max-width — let the tagline flow with the container width. */
 }
 .quicklinks {
   display: flex;
@@ -73,6 +73,7 @@ section.section-title,
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
+  flex-wrap: wrap;
   margin: 28px 0 12px;
 }
 .section-title h2 {
@@ -124,6 +125,9 @@ section.section-title,
 }
 @media (min-width: 1000px) {
   .grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+}
+@media (min-width: 1300px) {
+  .grid { grid-template-columns: repeat(4, 1fr); gap: 18px; }
 }
 
 /* ----- Profiles section ----- */
