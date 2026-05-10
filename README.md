@@ -75,6 +75,8 @@ Source for the dashboard. [Live](https://dhruvinrsoni.github.io/)
 
 ## Profiles & Coding
 
+**GitHub** — [Overview](https://github.com/dhruvinrsoni) · [Repositories](https://github.com/dhruvinrsoni?tab=repositories) · [Projects](https://github.com/dhruvinrsoni?tab=projects) · [Packages](https://github.com/dhruvinrsoni?tab=packages) · [Stars](https://github.com/dhruvinrsoni?tab=stars)
+
 **Developer** — [Stack Overflow](https://stackoverflow.com/users/15077282/dhruvinrsoni) · [Stack Exchange](https://stackexchange.com/users/9085620/dhruvinrsoni?tab=accounts) · [Google Developers](https://developers.google.com/profile/u/dhruvinrsoni) · [GC Skills Boost](https://www.cloudskillsboost.google/public_profiles/963de973-47b9-49f7-85c4-8cd882b597e3) · [Microsoft Learn](https://learn.microsoft.com/en-us/users/dhruvinrsoni) · [Credly](https://credly.com/users/dhruvinrsoni) · [Quora](https://www.quora.com/profile/Dhruvin-Soni-1/)
 
 **Coding** — [LeetCode](https://leetcode.com/u/dhruvinrsoni/) · [HackerRank](https://www.hackerrank.com/profile/DhruvinSoni) · [CodeChef](https://www.codechef.com/users/dhruvinrsoni) · [GeeksforGeeks](https://www.geeksforgeeks.org/user/dhruvinrsoni/)
