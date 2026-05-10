@@ -1,25 +1,113 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- ============ Document basics ============ -->
   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Dhruvin Soni — Launchpad</title>
+  <meta name="description" content="Launchpad — one-stop hub for Dhruvin Soni's projects, live demos, Chrome extensions, and profiles. Sort, filter, share, or scan." />
+  <meta name="keywords" content="Dhruvin Soni, launchpad, portfolio, dashboard, Chrome extension, PWA, AI tooling, GitHub projects, Zebra Technologies" />
+  <meta name="author" content="Dhruvin Soni" />
+
+  <!-- ============ SEO / indexing ============ -->
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://dhruvinrsoni.github.io/" />
+
+  <!-- ============ Color scheme & theme color ============ -->
+  <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#0a84ff" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
-  <title>Dhruvin Soni — Launchpad</title>
-  <meta name="description" content="One-stop hub for Dhruvin Soni's projects, live demos, Chrome extensions, and profiles." />
 
+  <!-- ============ Open Graph (Facebook, LinkedIn, Slack, Discord, iMessage) ============ -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Dhruvin Soni — Launchpad" />
   <meta property="og:title" content="Dhruvin Soni — Launchpad" />
   <meta property="og:description" content="One-stop hub for projects, live demos, Chrome extensions, and profiles." />
   <meta property="og:url" content="https://dhruvinrsoni.github.io/" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:locale" content="en_US" />
+  <!-- TODO: replace with a real 1200x630 PNG once you create one. -->
+  <meta property="og:image" content="https://dhruvinrsoni.github.io/og-image.png" />
+  <meta property="og:image:alt" content="Launchpad — Dhruvin Soni's project dashboard" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- ============ Twitter Cards (X / Twitter) ============ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@dhruvinrsoni" />
+  <meta name="twitter:creator" content="@dhruvinrsoni" />
   <meta name="twitter:title" content="Dhruvin Soni — Launchpad" />
   <meta name="twitter:description" content="One-stop hub for projects, live demos, Chrome extensions, and profiles." />
+  <meta name="twitter:image" content="https://dhruvinrsoni.github.io/og-image.png" />
+  <meta name="twitter:image:alt" content="Launchpad — Dhruvin Soni's project dashboard" />
 
-  <link rel="canonical" href="https://dhruvinrsoni.github.io/" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B1%3C/text%3E%3C/svg%3E" />
+  <!-- ============ iOS / Apple Web App ============ -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Launchpad" />
+  <meta name="format-detection" content="telephone=no" />
+  <!-- TODO: replace with real 180x180 PNG once available -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-  <!-- Stylesheets — load in dependency order -->
+  <!-- ============ Windows / Microsoft Tile ============ -->
+  <meta name="msapplication-TileColor" content="#0a84ff" />
+  <meta name="msapplication-config" content="none" />
+
+  <!-- ============ Favicons (multiple formats for full coverage) ============ -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B1%3C/text%3E%3C/svg%3E" />
+  <!-- TODO: PNG fallbacks for older browsers
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0a84ff" />
+  -->
+
+  <!-- ============ Web App Manifest (PWA) ============ -->
+  <link rel="manifest" href="manifest.webmanifest" />
+
+  <!-- ============ Search engine verification (commented placeholders) ============ -->
+  <!-- <meta name="google-site-verification" content="YOUR_CODE_HERE" /> -->
+  <!-- <meta name="msvalidate.01" content="YOUR_BING_CODE_HERE" /> -->
+
+  <!-- ============ Resource hints (performance) ============ -->
+  <link rel="preconnect" href="https://api.qrserver.com" crossorigin />
+  <link rel="dns-prefetch" href="https://api.qrserver.com" />
+
+  <!-- ============ Schema.org structured data (JSON-LD) ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://dhruvinrsoni.github.io/#website",
+        "url": "https://dhruvinrsoni.github.io/",
+        "name": "Dhruvin Soni — Launchpad",
+        "description": "One-stop hub for projects, live demos, Chrome extensions, and profiles.",
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://dhruvinrsoni.github.io/#person",
+        "name": "Dhruvin Soni",
+        "alternateName": "ધ્રુવિન",
+        "url": "https://dhruvinrsoni.github.io/dhruvinrsoni/",
+        "jobTitle": "Senior Software Engineer",
+        "worksFor": { "@type": "Organization", "name": "Zebra Technologies" },
+        "sameAs": [
+          "https://github.com/dhruvinrsoni",
+          "https://www.linkedin.com/in/dhruvinrsoni/",
+          "https://twitter.com/dhruvinrsoni",
+          "https://www.youtube.com/@dhruvinrsoni",
+          "https://www.instagram.com/dhruvinrsoni",
+          "https://credly.com/users/dhruvinrsoni",
+          "https://stackoverflow.com/users/15077282/dhruvinrsoni"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- ============ Stylesheets — load in dependency order ============ -->
   <link rel="stylesheet" href="styles/tokens.css" />
   <link rel="stylesheet" href="styles/base.css" />
   <link rel="stylesheet" href="styles/layout.css" />
