@@ -497,6 +497,52 @@
       header.site { padding-bottom: 28px; margin-bottom: 28px; }
     }
 
+    .scroll-bottom-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.18s ease, transform 0.18s ease, border-color 0.15s, background 0.15s;
+    }
+    .scroll-bottom-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .scroll-bottom-btn:hover {
+      border-color: var(--border-strong);
+      background: var(--bg-elev);
+    }
+    .scroll-bottom-btn:active { transform: scale(0.94); }
+    .scroll-bottom-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    @media (min-width: 700px) {
+      .scroll-bottom-btn { bottom: 24px; right: 24px; width: 52px; height: 52px; }
+      .scroll-bottom-btn svg { width: 24px; height: 24px; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -589,6 +635,10 @@
       <span>Built as a single-file dashboard · responsive · share-friendly</span>
     </footer>
   </div>
+
+  <button id="scroll-bottom" class="scroll-bottom-btn" type="button" aria-label="Scroll to bottom" title="Scroll to bottom">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </button>
 
   <div id="qr-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="qr-title" hidden>
     <div class="modal-card">
@@ -900,6 +950,25 @@
       });
     }
 
+    // ---------- Scroll-to-bottom button ----------
+    function initScrollBottom() {
+      const btn = $('#scroll-bottom');
+      if (!btn) return;
+      const update = () => {
+        const total = document.documentElement.scrollHeight;
+        const seen = window.scrollY + window.innerHeight;
+        const hasContent = total > window.innerHeight + 200;
+        const nearBottom = total - seen < 120;
+        btn.classList.toggle('visible', hasContent && !nearBottom);
+      };
+      btn.addEventListener('click', () => {
+        window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+      });
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    }
+
     // ---------- Init ----------
     document.addEventListener('DOMContentLoaded', () => {
       $('#year').textContent = new Date().getFullYear();
@@ -909,6 +978,7 @@
       bindCardEvents();
       bindHeaderEvents();
       initTheme();
+      initScrollBottom();
     });
   </script>
 </body>
