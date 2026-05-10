@@ -1,8 +1,10 @@
-# Dhruvin Soni — Portfolio Index
+# Dhruvin Soni — Launchpad
 
 **Senior Software Engineer @ Zebra Technologies.** Building offline-first PWAs, Chrome extensions, and AI tooling.
 
-> Live dashboard with copy buttons, native share, and QR codes for every project: **<https://dhruvinrsoni.github.io/>**
+> 🚀 **Launchpad** — live dashboard with copy buttons, native share, and QR codes for every project: <https://dhruvinrsoni.github.io/>
+>
+> 📖 **Portfolio** — long-form bio, tech stack, journey, blogs, and badges: <https://dhruvinrsoni.github.io/dhruvinrsoni/>
 
 [GitHub](https://github.com/dhruvinrsoni) · [LinkedIn](https://www.linkedin.com/in/dhruvinrsoni/) · [X / Twitter](https://twitter.com/dhruvinrsoni) · [YouTube](https://www.youtube.com/@dhruvinrsoni) · [Credly](https://credly.com/users/dhruvinrsoni)
 
