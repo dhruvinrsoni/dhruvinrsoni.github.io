@@ -58,19 +58,13 @@ header.site {
   flex-wrap: wrap;
   gap: 6px;
 }
-.profile-deeplinks {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-}
-.profile-deeplinks-label {
-  font-size: 12px;
-  color: var(--text-muted);
+/* Tagline tail link (e.g. "About me →") */
+.tagline-link {
+  color: var(--accent);
   font-weight: 600;
-  letter-spacing: 0.02em;
-  margin-right: 2px;
+  white-space: nowrap;
 }
+.tagline-link:hover { text-decoration: underline; }
 
 /* ----- Section title + sort/view toolbars ----- */
 section.section-title,
@@ -92,6 +86,18 @@ section.section-title,
   color: var(--text-muted);
   font-weight: 500;
 }
+.section-title-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.section-title-link {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+}
+.section-title-link:hover { text-decoration: underline; }
 .sort-bar {
   display: flex;
   flex-wrap: wrap;

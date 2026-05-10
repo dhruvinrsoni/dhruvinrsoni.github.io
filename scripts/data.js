@@ -122,15 +122,13 @@ const PAGE_TITLE = 'Dhruvin Soni — Portfolio Dashboard';
 // update only the slugs below; both header and footer reflect them.
 const PROFILE_BASE = 'https://dhruvinrsoni.github.io/dhruvinrsoni/';
 const PROFILE_DEEPLINKS = {
-  header: [
-    { label: 'About',      anchor: '#-about-me' },
-    { label: 'Tech Stack', anchor: '#-tech-stack' },
-    { label: 'Contact',    anchor: '#-how-to-reach-me' }
-  ],
+  tagline:      { label: 'About me →',   anchor: '#-about-me' },
+  sectionTitle: { label: 'Tech Stack ↗', anchor: '#-tech-stack' },
   footer: [
-    { label: 'Journey',    anchor: '#-timeline-of-achievements' },
-    { label: 'Blogs',      anchor: '#blogs' },
-    { label: 'Badges',     anchor: '#badgescertificates' }
+    { label: 'Journey', anchor: '#-timeline-of-achievements' },
+    { label: 'Blogs',   anchor: '#blogs' },
+    { label: 'Badges',  anchor: '#badgescertificates' },
+    { label: 'Contact', anchor: '#-how-to-reach-me' }
   ]
 };
 
