@@ -9,9 +9,7 @@
   gap: 10px;
 }
 [data-view="list"] article.card {
-  flex-direction: row;
-  align-items: stretch;
-  gap: 14px;
+  gap: 10px;
   padding: 12px 14px;
 }
 [data-view="list"] article.card.featured {
@@ -19,12 +17,16 @@
   border-color: var(--border);
   border-left: 3px solid var(--accent);
 }
-[data-view="list"] .card-head { flex: 0 0 auto; }
 [data-view="list"] .card-emoji { font-size: 22px; width: 32px; height: 32px; }
 [data-view="list"] .card-desc { font-size: 13px; }
 [data-view="list"] .card-share { padding-top: 6px; border-top: 0; }
 @media (min-width: 800px) {
-  [data-view="list"] article.card { align-items: center; }
+  [data-view="list"] article.card {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+  [data-view="list"] .card-head { flex: 0 0 auto; }
   [data-view="list"] .card-share { margin-left: auto; padding-top: 0; }
 }
 

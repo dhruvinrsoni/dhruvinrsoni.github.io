@@ -124,6 +124,7 @@ article.card.featured {
   margin: 0;
   font-weight: 700;
   letter-spacing: -0.005em;
+  overflow-wrap: anywhere;
 }
 .featured-star {
   color: var(--accent);
