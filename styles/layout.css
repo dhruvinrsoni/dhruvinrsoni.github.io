@@ -6,7 +6,11 @@
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 20px 16px 48px;
+  padding:
+    max(20px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    max(48px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
 }
 
 /* ----- Header ----- */
@@ -191,7 +195,13 @@ footer.site a { color: var(--text-muted); }
 
 /* ----- Larger screens ----- */
 @media (min-width: 700px) {
-  .container { padding: 28px 24px 56px; }
+  .container {
+    padding:
+      max(28px, env(safe-area-inset-top))
+      max(24px, env(safe-area-inset-right))
+      max(56px, env(safe-area-inset-bottom))
+      max(24px, env(safe-area-inset-left));
+  }
   .site-title h1 { font-size: 26px; }
   header.site { padding-bottom: 28px; margin-bottom: 28px; }
 }

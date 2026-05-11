@@ -310,8 +310,8 @@ article.card.featured {
 /* ----- Scroll-to-bottom FAB ----- */
 .scroll-bottom-btn {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  right: max(20px, env(safe-area-inset-right));
   width: 48px;
   height: 48px;
   padding: 0;
@@ -350,15 +350,20 @@ article.card.featured {
   stroke-linejoin: round;
 }
 @media (min-width: 700px) {
-  .scroll-bottom-btn { bottom: 24px; right: 24px; width: 52px; height: 52px; }
+  .scroll-bottom-btn {
+    bottom: max(24px, env(safe-area-inset-bottom));
+    right: max(24px, env(safe-area-inset-right));
+    width: 52px;
+    height: 52px;
+  }
   .scroll-bottom-btn svg { width: 24px; height: 24px; }
 }
 
 /* ----- Scroll-to-top FAB (mirror of scroll-bottom, top-right) ----- */
 .scroll-top-btn {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: max(20px, env(safe-area-inset-top));
+  right: max(20px, env(safe-area-inset-right));
   width: 48px;
   height: 48px;
   padding: 0;
@@ -397,6 +402,11 @@ article.card.featured {
   stroke-linejoin: round;
 }
 @media (min-width: 700px) {
-  .scroll-top-btn { top: 24px; right: 24px; width: 52px; height: 52px; }
+  .scroll-top-btn {
+    top: max(24px, env(safe-area-inset-top));
+    right: max(24px, env(safe-area-inset-right));
+    width: 52px;
+    height: 52px;
+  }
   .scroll-top-btn svg { width: 24px; height: 24px; }
 }
