@@ -176,6 +176,16 @@ footer.site a { color: var(--text-muted); }
   padding-top: 10px;
   border-top: 1px dashed var(--border);
 }
+.footer-version code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  background: var(--bg-elev);
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: var(--text);
+}
+.footer-version a { color: inherit; text-decoration: none; }
+.footer-version a:hover code { background: var(--accent-soft); color: var(--accent); }
 
 /* ----- Larger screens ----- */
 @media (min-width: 700px) {

@@ -15,4 +15,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initViewBar();
   initScrollTop();
   initScrollBottom();
+  initVersionFooter();
 });
