@@ -1,20 +1,50 @@
 // share.js — copy / Web Share API / QR modal, plus the event bindings that wire them up.
-// Owns: copyToClipboard, nativeShare, openQR, closeQR, bindCardEvents, bindHeaderEvents.
-// Depends on: data.js ($, ICONS, PAGE_URL, PAGE_TITLE, canShare).
+// Owns: copyLink, nativeShare, openQR, closeQR, bindCardEvents, bindHeaderEvents.
+// Depends on: data.js ($, ICONS, PAGE_URL, PAGE_TITLE, canShare, escapeHtml).
 
-async function copyToClipboard(text, btn) {
-  try {
-    await navigator.clipboard.writeText(text);
-  } catch {
+// copyLink writes BOTH text/html and text/plain to the clipboard.
+// - Rich text targets (Teams, Outlook, Word, Notion, Slack message box):
+//     see an <a href="url">title</a> — pasted as a styled clickable link.
+// - Plain text targets (Notepad, terminal, URL bars):
+//     see the raw URL.
+// Mirrors how Edge's omnibox Ctrl+C behaves.
+async function copyLink(url, title, btn) {
+  const html = `<a href="${escapeHtml(url)}">${escapeHtml(title || url)}</a>`;
+  const plain = url;
+  let copied = false;
+
+  // Path 1: modern dual-format Clipboard API (Chrome/Edge 76+, Safari 13.4+, Firefox 127+).
+  if (navigator.clipboard && typeof window.ClipboardItem === 'function') {
+    try {
+      const item = new ClipboardItem({
+        'text/html':  new Blob([html],  { type: 'text/html' }),
+        'text/plain': new Blob([plain], { type: 'text/plain' })
+      });
+      await navigator.clipboard.write([item]);
+      copied = true;
+    } catch (e) { /* fall through */ }
+  }
+
+  // Path 2: plain-text-only Clipboard API (older browsers / restricted contexts).
+  if (!copied && navigator.clipboard && navigator.clipboard.writeText) {
+    try {
+      await navigator.clipboard.writeText(plain);
+      copied = true;
+    } catch (e) { /* fall through */ }
+  }
+
+  // Path 3: legacy textarea + execCommand (very old browsers / iOS quirks).
+  if (!copied) {
     const ta = document.createElement('textarea');
-    ta.value = text;
+    ta.value = plain;
     ta.style.position = 'fixed';
     ta.style.opacity = '0';
     document.body.appendChild(ta);
     ta.select();
-    try { document.execCommand('copy'); } catch {}
+    try { document.execCommand('copy'); } catch (e) {}
     document.body.removeChild(ta);
   }
+
   if (btn) {
     btn.classList.add('flash');
     setTimeout(() => btn.classList.remove('flash'), 1400);
@@ -57,7 +87,7 @@ function bindCardEvents() {
     const desc = card.dataset.desc;
 
     const copyBtn = ev.target.closest('.js-copy');
-    if (copyBtn) { ev.preventDefault(); copyToClipboard(url, copyBtn); return; }
+    if (copyBtn) { ev.preventDefault(); copyLink(url, name, copyBtn); return; }
 
     const shareBtn = ev.target.closest('.js-share');
     if (shareBtn) { ev.preventDefault(); nativeShare(name, desc, url); return; }
@@ -68,7 +98,7 @@ function bindCardEvents() {
 }
 
 function bindHeaderEvents() {
-  $('#share-page-copy').addEventListener('click', (e) => copyToClipboard(PAGE_URL, e.currentTarget));
+  $('#share-page-copy').addEventListener('click', (e) => copyLink(PAGE_URL, PAGE_TITLE, e.currentTarget));
   const sharePageBtn = $('#share-page-share');
   if (canShare) {
     sharePageBtn.addEventListener('click', () => nativeShare(PAGE_TITLE, 'Dhruvin Soni — projects, demos, extensions.', PAGE_URL));
