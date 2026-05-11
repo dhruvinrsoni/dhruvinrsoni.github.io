@@ -66,6 +66,12 @@ Cross-platform productivity scripts — batch, PowerShell, shell, registry tweak
 Started with a GenAI piece, now organized into two Notion indexes — Technical Blogs and General Blogs.
 [Tech Blogs](https://dhruvinrsoni.notion.site/Learning-on-the-edge-Technical-Blogs-and-Articles-2d197971458a80cabfd9c2494d3b3abe) · [General Blogs](https://dhruvinrsoni.notion.site/Around-and-Beyond-Horizon-Blogs-and-Articles-2d197971458a803abf7be8245577b65b) · [GenAI · origin](https://dhruvinrsoni.notion.site/Future-with-GenAI-as-of-Aug-25-25997971458a801f8fd9e3bfa1797aa3)
 
+### Origins
+
+**📜 First React App** — *Origin · React App*
+My very first React app — built following React's official docs tutorial and deployed to Firebase. The Firebase account is long gone and the source code is lost; only the live URL remains. Where the journey began.
+[Live](https://first-todo-app-f98b3.firebaseapp.com/)
+
 ### Meta
 
 **👋 [/dhruvinrsoni](https://dhruvinrsoni.github.io/dhruvinrsoni/)** — *Profile Site*

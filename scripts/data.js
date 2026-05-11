@@ -106,6 +106,13 @@ const PROJECTS = [
     ]
   },
   {
+    id: 'first-todo-app', name: 'First React App', emoji: '📜',
+    type: 'Origin · React App',
+    desc: "My very first React app — built following React's official docs tutorial and deployed to Firebase. The Firebase account is long gone and the source code is lost; only the live URL remains. Where the journey began.",
+    live: 'https://first-todo-app-f98b3.firebaseapp.com/',
+    primary: 'live'
+  },
+  {
     id: 'dhruvinrsoni-github-io', name: 'This Site', emoji: '🏠',
     type: 'Portfolio',
     desc: "The dashboard you're reading right now — a hub for everything above.",
