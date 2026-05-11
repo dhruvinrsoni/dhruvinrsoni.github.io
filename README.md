@@ -78,8 +78,8 @@ My very first React app — built following React's official docs tutorial and d
 My personal profile site — about me, tech stack, journey, blogs, badges, and more.
 [Live](https://dhruvinrsoni.github.io/dhruvinrsoni/) · [Profile](https://github.com/dhruvinrsoni) · [Repo](https://github.com/dhruvinrsoni/dhruvinrsoni)
 
-**🏠 [This Site](https://github.com/dhruvinrsoni/dhruvinrsoni.github.io)** — *Portfolio*
-Source for the dashboard. [Live](https://dhruvinrsoni.github.io/)
+**🏠 [Launchpad](https://github.com/dhruvinrsoni/dhruvinrsoni.github.io)** — *Project Hub*
+Source for the Launchpad — one-stop hub for projects, demos, extensions, and profiles. [Live](https://dhruvinrsoni.github.io/)
 
 ---
 

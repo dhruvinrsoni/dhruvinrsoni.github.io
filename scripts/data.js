@@ -113,9 +113,9 @@ const PROJECTS = [
     primary: 'live'
   },
   {
-    id: 'dhruvinrsoni-github-io', name: 'This Site', emoji: '🏠',
-    type: 'Portfolio',
-    desc: "The dashboard you're reading right now — a hub for everything above.",
+    id: 'dhruvinrsoni-github-io', name: 'Launchpad', emoji: '🏠',
+    type: 'Project Hub',
+    desc: "One-stop hub for Dhruvin Soni's projects, live demos, Chrome extensions, and profiles.",
     repo: 'https://github.com/dhruvinrsoni/dhruvinrsoni.github.io',
     live: 'https://dhruvinrsoni.github.io/',
     primary: 'live'
