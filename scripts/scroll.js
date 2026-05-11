@@ -17,7 +17,7 @@ function initScrollBottom() {
   });
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
-  update();
+  requestAnimationFrame(update);
 }
 
 function initScrollTop() {
@@ -31,5 +31,5 @@ function initScrollTop() {
   });
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
-  update();
+  requestAnimationFrame(update);
 }
