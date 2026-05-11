@@ -27,6 +27,9 @@ function renderActions(p) {
   return items.join('');
 }
 
+// DOM size note: ~45 elements per card × 14+ projects ≈ 650+ total elements. Reducing
+// requires either simplifying card markup (fewer SVG icons) or virtual scrolling — both
+// are significant UX changes. Acceptable at current project count; revisit if count grows past ~30.
 function renderCard(p) {
   const primaryUrl = primaryUrlOf(p);
   const subHtml = p.sub ? `<span class="card-sub">${escapeHtml(p.sub)}</span>` : '';
