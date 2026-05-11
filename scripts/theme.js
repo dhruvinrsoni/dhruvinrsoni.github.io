@@ -12,8 +12,7 @@ function initTheme() {
   if (saved === 'light' || saved === 'dark') applyTheme(saved);
   $('#theme-toggle').addEventListener('click', () => {
     const current = document.documentElement.getAttribute('data-theme');
-    const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const next = current === 'dark' ? 'light' : current === 'light' ? 'dark' : (sysDark ? 'light' : 'dark');
+    const next = current === 'dark' ? 'light' : 'dark';
     applyTheme(next);
     localStorage.setItem('theme', next);
   });
