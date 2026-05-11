@@ -21,9 +21,9 @@
 
 Repo: `dhruvinrsoni/dhruvinrsoni.github.io`
 
-- [ ] Create `og-image.png` (1200×630) at repo root.
+- [x] Create `og-image.png` (1200×630) at repo root.
       Used by: `<meta property="og:image">` and `<meta name="twitter:image">` in `index.html`.
-- [ ] Create `apple-touch-icon.png` (180×180) at repo root.
+- [x] Create `apple-touch-icon.png` (180×180) at repo root.
       Used by: `<link rel="apple-touch-icon">` in `index.html`.
 - [ ] Optional: create `favicon-32x32.png` + `favicon-16x16.png` PNG fallbacks
       for older browsers (currently using inline SVG only). Uncomment the
@@ -36,7 +36,7 @@ Repo: `dhruvinrsoni/dhruvinrsoni.github.io`
 
 Repo: `dhruvinrsoni/dhruvinrsoni`
 
-- [ ] Create `assets/og-image.png` (1200×630) in the repo, then **uncomment
+- [x] Create `assets/og-image.png` (1200×630) in the repo, then **uncomment
       the `image:` line** in `_config.yml` to wire it into og:image / twitter:image.
 - [ ] Optional: design + adopt a richer custom Jekyll theme (the "Ubuntu-OS
       style portfolio" idea). When that happens, also update the page's H1 /
@@ -46,9 +46,9 @@ Repo: `dhruvinrsoni/dhruvinrsoni`
 
 Repo: `dhruvinrsoni/power-user-scripts`
 
-- [ ] Create `og-image.png` (1200×630) in `.github/pages/docs/`.
+- [x] Create `og-image.png` (1200×630) in `.github/pages/docs/`.
       Referenced from `overrides/main.html` as `og-image.png`.
-- [ ] Create `apple-touch-icon.png` (180×180) in `.github/pages/docs/`.
+- [x] Create `apple-touch-icon.png` (180×180) in `.github/pages/docs/`.
 - [ ] Optional: replace Material's default "M" favicon with a custom one
       (drop into `.github/pages/docs/assets/images/favicon.png`).
 
@@ -56,10 +56,10 @@ Repo: `dhruvinrsoni/power-user-scripts`
 
 Repo: `dhruvinrsoni/agentskills-garden`
 
-- [ ] Create `og-image.png` (1200×630). Easiest spot: put it under
+- [x] Create `og-image.png` (1200×630). Easiest spot: put it under
       `scripts/site_templates/` and extend `build_site.py` to copy it to
       `_site/og-image.png` at build time (same pattern as the manifest copy).
-- [ ] Create `apple-touch-icon.png` (180×180) — same approach.
+- [x] Create `apple-touch-icon.png` (180×180) — same approach.
 - [ ] Optional: replace the inline 🌱 SVG favicon with a logo PNG/SVG.
 
 ---
