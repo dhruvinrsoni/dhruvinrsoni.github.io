@@ -137,6 +137,8 @@ section.profiles {
   border-radius: var(--radius);
   padding: 18px;
   margin-top: 28px;
+  content-visibility: auto;
+  contain-intrinsic-block-size: 200px;
 }
 
 /* ----- Footer ----- */
