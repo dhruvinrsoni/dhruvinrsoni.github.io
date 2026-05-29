@@ -84,6 +84,8 @@ python -m http.server 8000
 ```
 No install step. Deploy by pushing `main` to GitHub Pages.
 
+Add or edit a Launchpad card with `node tools/add-card.mjs` (zero-dep generator; `--update <id>`, `--validate`, `--dry-run`) — see `dhruvinrsoni.github.io/tools/README.md`.
+
 ### todolistapp (Create React App — legacy)
 ```bash
 cd todolistapp
