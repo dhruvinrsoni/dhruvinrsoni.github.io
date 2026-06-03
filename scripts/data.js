@@ -49,10 +49,14 @@ const PROJECTS = [
   {
     id: 'rangoli-royale', name: 'Rangoli Royale', sub: 'रंगोली', emoji: '🪔',
     type: 'Game · PWA',
-    desc: 'Pass-the-device, 2-team strategy on an Indian rangoli dot grid — offline-first, zero telemetry.',
+    desc: '2-team strategy on an Indian rangoli dot grid — play online multiplayer or pass-the-device offline.',
     repo: 'https://github.com/dhruvinrsoni/rangoli-royale',
-    live: 'https://dhruvinrsoni.github.io/rangoli-royale/',
-    primary: 'live'
+    live: 'https://rangoli-royale.vercel.app/',
+    liveLabel: 'Play Online',
+    primary: 'live',
+    extras: [
+      { label: 'Offline Build', url: 'https://dhruvinrsoni.github.io/rangoli-royale/', icon: 'live' }
+    ]
   },
   {
     id: 'online-pizza-ordering-system', name: 'Pizza Ordering System', emoji: '🍕',
