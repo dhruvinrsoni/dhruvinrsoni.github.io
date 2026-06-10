@@ -20,14 +20,27 @@
 [data-view="list"] .card-emoji { font-size: 22px; width: 32px; height: 32px; }
 [data-view="list"] .card-desc { font-size: 13px; }
 [data-view="list"] .card-share { padding-top: 6px; border-top: 0; }
+/* "Share" label is redundant in list view (the icons are self-explanatory) */
+[data-view="list"] .card-share-label { display: none; }
 @media (min-width: 800px) {
   [data-view="list"] article.card {
     flex-direction: row;
     align-items: center;
     gap: 14px;
   }
-  [data-view="list"] .card-head { flex: 0 0 auto; }
-  [data-view="list"] .card-share { margin-left: auto; padding-top: 0; }
+  [data-view="list"] .card-head { flex: 0 0 260px; min-width: 0; }
+  /* description takes the free width and is capped at 2 lines, so it never
+     collapses into a tall narrow rectangle (e.g. Samvada Studio, blog cards) */
+  [data-view="list"] .card-desc {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  [data-view="list"] .card-actions { flex: 0 0 auto; flex-wrap: nowrap; }
+  [data-view="list"] .card-share { flex: 0 0 auto; margin-left: 0; padding-top: 0; }
 }
 
 /* ----- View toggle: compact ----- */
