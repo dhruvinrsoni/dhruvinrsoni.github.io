@@ -59,12 +59,13 @@ npm run ship patch    # full release: bump, changelog, tag, GitHub Release, zip
 ```bash
 cd agentskills-garden
 pip install -r requirements.txt          # PyYAML, Jinja2, Markdown, requests
-python scripts/build_site.py             # build → _site/
-python scripts/build_site.py --serve     # build + serve at :8000
-python scripts/validate_skills.py        # validate registry + skill frontmatter
+python scripts/build.py                  # build → _site/ + generate index & registry.yaml
+python scripts/build.py --serve          # build + serve at :8000
+python scripts/validate.py --strict      # validate skill frontmatter (frontmatter-driven, v2)
 python scripts/check-links.py            # validate internal markdown links
+python scripts/benchmark.py              # prove discovery cost stays flat at scale
 ```
-Production: `BASE_URL=/agentskills-garden` env var required.
+Production: `BASE_URL=/agentskills-garden` env var required. New here? See `docs/how-it-works.md`.
 
 ### power-user-scripts (MkDocs)
 ```bash
@@ -137,7 +138,7 @@ All four GitHub Pages sites share this palette:
 
 ### agentskills-garden build pipeline
 
-Source of truth is `registry.yaml` + per-skill `SKILL.md` files under `skills/`. `build_site.py` reads the registry, renders Jinja2 templates from `scripts/site_templates/`, and writes to `_site/`. Static assets (`manifest.webmanifest`, `og-image.png`, `apple-touch-icon.png`) are copied from `scripts/site_templates/` to `_site/` at build time.
+Source of truth is each skill's **`SKILL.md` frontmatter** (not a hand-edited registry). Skills are organised into **domain namespaces** (`skills/000-foundation/`, `skills/100-engineering/<NN-phase>/`, room for `200-writing/` etc.). `build.py` walks `skills/`, reads frontmatter, and generates: the static site (`_site/`), a tiered discovery index (`skills/_index/`, navigation `map → domain index → category index → skill`), `search-index.json`, and a back-compat `registry.yaml`/`.json`. Skills are distributed to other repos via a junction (`link-skills.ps1`) and contributed back via `promote-skills.ps1` / `gather-skills.ps1`. See `agentskills-garden/docs/how-it-works.md`.
 
 ---
 
