@@ -410,3 +410,16 @@ article.card.featured {
   }
   .scroll-top-btn svg { width: 24px; height: 24px; }
 }
+
+/* ----- Install (PWA) button — only shown when the app is installable ----- */
+.install-btn {
+  width: auto;
+  gap: 6px;
+  padding: 0 12px;
+  background: var(--accent, #0a84ff);
+  color: var(--accent-fg, #fff);
+  border-color: var(--accent, #0a84ff);
+}
+.install-btn:hover { filter: brightness(1.06); }
+.install-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.install-label { font-size: 13px; font-weight: 600; }

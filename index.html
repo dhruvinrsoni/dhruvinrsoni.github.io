@@ -181,6 +181,7 @@
   <script defer src="scripts/theme.js"></script>
   <script defer src="scripts/scroll.js"></script>
   <script defer src="scripts/version.js"></script>
+  <script defer src="scripts/pwa.js"></script>
   <script defer src="scripts/main.js"></script>
 </head>
 <body>
@@ -192,6 +193,10 @@
           <span class="deva">ધ્રુવિન · @dhruvinrsoni</span>
         </div>
         <div class="site-actions">
+          <button id="install-app" class="icon-btn install-btn" type="button" aria-label="Install Launchpad as an app" title="Install app" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11"/><path d="M8 11l4 4 4-4"/><path d="M5 18.5h14"/></svg>
+            <span class="install-label">Install</span>
+          </button>
           <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
           </button>
