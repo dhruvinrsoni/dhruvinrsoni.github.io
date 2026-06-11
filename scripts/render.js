@@ -54,7 +54,7 @@ function renderCard(p) {
         <span class="card-emoji" aria-hidden="true">${p.emoji}</span>
         <div class="card-title-block">
           <div class="card-title">
-            <h3>${escapeHtml(p.name)}</h3>
+            <h3 title="${escapeHtml(p.name)}">${escapeHtml(p.name)}</h3>
             ${featuredStar}
             ${subHtml}
           </div>

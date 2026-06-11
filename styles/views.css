@@ -18,6 +18,11 @@
   border-left: 3px solid var(--accent);
 }
 [data-view="list"] .card-emoji { font-size: 22px; width: 32px; height: 32px; }
+/* Title on one line with the type pill inline, so rows align (no variable-height wrap). */
+[data-view="list"] .card-title-block { display: flex; flex-direction: row; align-items: center; gap: 8px; min-width: 0; }
+[data-view="list"] .card-title { flex: 0 1 auto; min-width: 0; flex-wrap: nowrap; }
+[data-view="list"] .card-title h3 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+[data-view="list"] .type-pill { margin-top: 0; flex: 0 0 auto; }
 [data-view="list"] .card-desc { font-size: 13px; }
 [data-view="list"] .card-share { padding-top: 6px; border-top: 0; }
 /* "Share" label is redundant in list view (the icons are self-explanatory) */
