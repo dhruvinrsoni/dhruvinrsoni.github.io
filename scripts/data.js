@@ -125,7 +125,7 @@ const PROJECTS = [
     primary: 'live'
   },
   {
-    id: 'dhruvinrsoni-github-io', name: 'Launchpad', emoji: '🏠',
+    id: 'dhruvinrsoni-github-io', name: 'Home', emoji: '🏠',
     type: 'Project Hub',
     desc: "One-stop hub for Dhruvin Soni's projects, live demos, Chrome extensions, and profiles.",
     repo: 'https://github.com/dhruvinrsoni/dhruvinrsoni.github.io',
