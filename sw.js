@@ -2,7 +2,7 @@
 // Two jobs: (1) offline support via caching, (2) provide a `fetch` handler, which
 // (together with PNG icons in the manifest) is what lets Android install this as a
 // real app/WebAPK instead of a plain home-screen bookmark.
-const CACHE = 'launchpad-v1';
+const CACHE = 'launchpad-v2';
 const CORE = [
   '/', '/index.html', '/manifest.webmanifest',
   '/styles/tokens.css', '/styles/base.css', '/styles/layout.css',
@@ -10,7 +10,8 @@ const CORE = [
   '/scripts/data.js', '/scripts/state.js', '/scripts/render.js',
   '/scripts/share.js', '/scripts/controls.js', '/scripts/theme.js',
   '/scripts/scroll.js', '/scripts/version.js', '/scripts/pwa.js', '/scripts/main.js',
-  '/icon-192.png', '/icon-512.png', '/apple-touch-icon.png'
+  '/icons/rocket-space/icon-192.png', '/icons/rocket-space/icon-512.png',
+  '/icons/rocket-space/apple-touch-180.png'
 ];
 
 self.addEventListener('install', (event) => {
