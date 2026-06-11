@@ -3,6 +3,16 @@
 // Depends on: nothing.
 
 // ---------- Project data ----------
+// ---------- Link open behaviour (configurable) ----------
+// How a project's links open when tapped from the hub:
+//   'app' = same window (stays inside the installed app — seamless in-app feel)
+//   'tab' = new browser tab (the project keeps its OWN PWA install / identity)
+// Cross-origin links ALWAYS open in a new tab regardless of this setting.
+// Per-project override: add `open: 'tab'` (or `open: 'app'`) to a project below.
+// Installable PWAs are set to 'tab' so installing the hub never shadows their
+// own install. Non-PWA same-origin pages use OPEN_DEFAULT (the master switch).
+const OPEN_DEFAULT = 'app';   // <-- flip to 'tab' to make every non-PWA page open in a new tab
+
 const PROJECTS = [
   {
     id: 'smruti-cortex', name: 'Smruti Cortex', sub: 'स्मृति', emoji: '🧠',
@@ -14,7 +24,7 @@ const PROJECTS = [
     primary: 'webstore'
   },
   {
-    id: 'samvada-studio', name: 'Samvada Studio', sub: 'संवाद स्टूडियो', emoji: '💬',
+    id: 'samvada-studio', open: 'tab', name: 'Samvada Studio', sub: 'संवाद स्टूडियो', emoji: '💬',
     type: 'Web App / PWA', featured: true,
     desc: 'Multi-provider LLM chat UI — OpenAI, Anthropic, Google, Ollama, Azure.',
     repo: 'https://github.com/dhruvinrsoni/samvada-studio',
@@ -23,7 +33,7 @@ const PROJECTS = [
     primary: 'live'
   },
   {
-    id: 'cipher-alchemist', name: 'Cipher Alchemist', emoji: '🔐',
+    id: 'cipher-alchemist', open: 'tab', name: 'Cipher Alchemist', emoji: '🔐',
     type: 'PWA', featured: true,
     desc: 'Secure, offline-capable phrase-to-password generator with custom rules.',
     repo: 'https://github.com/dhruvinrsoni/cipher-alchemist',
@@ -31,7 +41,7 @@ const PROJECTS = [
     primary: 'live'
   },
   {
-    id: 'smart-logger', name: 'Smart Logger', emoji: '📓',
+    id: 'smart-logger', open: 'tab', name: 'Smart Logger', emoji: '📓',
     type: 'PWA',
     desc: 'Privacy-first offline logger with dual UI (modern + classic), CSV/JSON export.',
     repo: 'https://github.com/dhruvinrsoni/smart-logger',
@@ -47,7 +57,7 @@ const PROJECTS = [
     primary: 'live'
   },
   {
-    id: 'rangoli-royale', name: 'Rangoli Royale', sub: 'रंगोली', emoji: '🪔',
+    id: 'rangoli-royale', open: 'tab', name: 'Rangoli Royale', sub: 'रंगोली', emoji: '🪔',
     type: 'Game · PWA',
     desc: '2-team strategy on an Indian rangoli dot grid — play online multiplayer or pass-the-device offline.',
     repo: 'https://github.com/dhruvinrsoni/rangoli-royale',
@@ -67,7 +77,7 @@ const PROJECTS = [
     primary: 'live'
   },
   {
-    id: 'agentskills-garden', name: 'Agentskills Garden', emoji: '🌿',
+    id: 'agentskills-garden', open: 'tab', name: 'Agentskills Garden', emoji: '🌿',
     type: 'AI Skill Library',
     desc: '88 hierarchical AI-agent skills, constitution-driven (Satya · Dharma · Ahimsa · Pragya).',
     repo: 'https://github.com/dhruvinrsoni/agentskills-garden',
@@ -98,7 +108,7 @@ const PROJECTS = [
     primary: 'live'
   },
   {
-    id: 'todolistapp', name: 'To-Do List PWA', emoji: '✅',
+    id: 'todolistapp', open: 'tab', name: 'To-Do List PWA', emoji: '✅',
     type: 'PWA',
     desc: 'Installable React to-do list — Progressive Web App hosted on Firebase.',
     repo: 'https://github.com/dhruvinrsoni/todolistapp',

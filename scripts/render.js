@@ -3,12 +3,23 @@
 // Depends on: data.js (PROJECTS, ICONS, escapeHtml, primaryUrlOf, canShare, $, PROFILE_BASE, PROFILE_DEEPLINKS),
 //             state.js (sortedProjects).
 
+// Decide how a link opens (see OPEN_DEFAULT + per-project `open` in data.js).
+// Cross-origin → always a new tab. Same-origin → 'app' (same window, in-app feel)
+// or 'tab' (new browser tab, so a child PWA keeps its own install identity).
+function openAttr(p, url) {
+  let sameOrigin = false;
+  try { sameOrigin = new URL(url, location.href).origin === location.origin; } catch (e) {}
+  if (!sameOrigin) return ' target="_blank" rel="noopener"';
+  const mode = p.open || (typeof OPEN_DEFAULT !== 'undefined' ? OPEN_DEFAULT : 'app');
+  return mode === 'tab' ? ' target="_blank" rel="noopener"' : '';
+}
+
 function renderActions(p) {
   const items = [];
   const make = (key, label, iconKey, primary) => {
     if (!p[key]) return;
     items.push(
-      `<a class="action-link${primary ? ' primary' : ''}" href="${escapeHtml(p[key])}" target="_blank" rel="noopener">` +
+      `<a class="action-link${primary ? ' primary' : ''}" href="${escapeHtml(p[key])}"${openAttr(p, p[key])}>` +
       `${ICONS[iconKey]}<span>${label}</span></a>`
     );
   };
@@ -19,7 +30,7 @@ function renderActions(p) {
   if (Array.isArray(p.extras)) {
     p.extras.forEach(e => {
       items.push(
-        `<a class="action-link" href="${escapeHtml(e.url)}" target="_blank" rel="noopener">` +
+        `<a class="action-link" href="${escapeHtml(e.url)}"${openAttr(p, e.url)}>` +
         `${ICONS[e.icon || 'external']}<span>${escapeHtml(e.label)}</span></a>`
       );
     });
