@@ -111,3 +111,7 @@
 [data-view="compact"] .card-share .js-qr { display: none; }
 [data-view="compact"] .card-share { padding: 0; border-top: 0; }
 [data-view="compact"] .card-share .icon-btn { width: 32px; height: 32px; }
+
+/* List & compact rows open on tap (handled in share.js) — hint it. */
+[data-view="list"] article.card,
+[data-view="compact"] article.card { cursor: pointer; }

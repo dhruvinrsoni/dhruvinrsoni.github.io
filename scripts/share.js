@@ -94,6 +94,19 @@ function bindCardEvents() {
 
     const qrBtn = ev.target.closest('.js-qr');
     if (qrBtn) { ev.preventDefault(); openQR(url, name); return; }
+
+    // List & compact views: tapping the row (outside a button/link) opens the
+    // project via its already-rendered primary action link — reusing that link's
+    // href + target honors the per-project open mode without duplicating it here.
+    const view = document.querySelector('main')?.dataset.view;
+    if (view === 'list' || view === 'compact') {
+      if (ev.target.closest('a.action-link')) return;
+      const primaryA = card.querySelector('a.action-link.primary') || card.querySelector('a.action-link');
+      if (primaryA) {
+        if (primaryA.target === '_blank') window.open(primaryA.href, '_blank', 'noopener');
+        else window.location.href = primaryA.href;
+      }
+    }
   });
 }
 
