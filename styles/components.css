@@ -420,6 +420,12 @@ article.card.featured {
   color: var(--accent-fg, #fff);
   border-color: var(--accent, #0a84ff);
 }
-.install-btn:hover { filter: brightness(1.06); }
+/* keep accent bg + readable text on hover (override .icon-btn:hover's light bg) */
+.install-btn:hover {
+  background: var(--accent, #0a84ff);
+  border-color: var(--accent, #0a84ff);
+  color: var(--accent-fg, #fff);
+  filter: brightness(1.08);
+}
 .install-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .install-label { font-size: 13px; font-weight: 600; }
