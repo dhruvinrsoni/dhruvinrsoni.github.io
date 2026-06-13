@@ -33,6 +33,25 @@
   border-color: var(--accent);
 }
 
+/* ----- Brand pills (social + profile links): logo at rest, fill with the
+   brand colour on hover. --brand is set inline per pill from data.js. ----- */
+.pill--social { gap: 7px; transition: background .15s, border-color .15s, color .15s, transform .12s; }
+.pill--social .pill-logo { width: 15px; height: 15px; display: block; flex: 0 0 auto; }
+.pill--social:hover {
+  background: var(--brand, var(--accent));
+  border-color: transparent;
+  color: #fff;
+  transform: translateY(-1px);
+}
+.pill--social:hover .pill-logo { filter: brightness(0) invert(1); }
+/* near-black logos (GitHub, X, CodeChef) stay visible on the dark theme at rest */
+[data-theme="dark"] .pill--social.is-dark-logo .pill-logo { filter: invert(1) brightness(1.15); }
+[data-theme="dark"] .pill--social.is-dark-logo:hover .pill-logo { filter: brightness(0) invert(1); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .pill--social.is-dark-logo .pill-logo { filter: invert(1) brightness(1.15); }
+  :root:not([data-theme="light"]) .pill--social.is-dark-logo:hover .pill-logo { filter: brightness(0) invert(1); }
+}
+
 /* ----- Icon button (header actions, card share row) ----- */
 .icon-btn {
   display: inline-flex;
