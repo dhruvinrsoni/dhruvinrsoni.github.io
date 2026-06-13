@@ -79,6 +79,22 @@ A plain-words tour of every search/social/installability tag on the Launchpad, o
   from `PROJECTS` at runtime — so it can never drift from the cards.
 - **How:** validate with Google's Rich Results Test (link below). `sameAs` ties all your identities
   together for the knowledge graph.
+- **Free apps:** each project carries `offers` with `price: "0"` (₹0 INR) — it's free/open-source.
+- **Ratings/reviews — intentionally omitted:** the Rich Results Test shows "non-critical issues" on
+  the projects because they have no `aggregateRating` / `review`. That's **by design** — we never
+  invent ratings (fake review markup violates Google's policy and risks a manual action). Missing
+  optional fields are just warnings, never a penalty; this is the standard, honest state for apps
+  without real crowd ratings. If an app later earns genuine public ratings (e.g. Chrome Web Store),
+  we can add the real numbers then.
+
+## 12b. Made in India 🇮🇳
+- **Why:** the site is proudly designed & coded in India, and we want to show it — honestly, without
+  keyword-stuffing.
+- **What/How:** three legitimate signals — a visible **"Made in India" footer badge**; the creator
+  **Person** carries `nationality: India` + `address.addressCountry: "IN"` (origin flows to every
+  project via the `author` link); and the locale is Indian English (`html lang="en-IN"`,
+  `og:locale="en_IN"`, `inLanguage="en-IN"`). Note: schema.org's `countryOfOrigin` is **not** valid
+  on a SoftwareApplication, so origin is declared via the creator Person — the correct way.
 
 ## 13. Search-engine verification
 - **Why:** Google Search Console & Bing Webmaster Tools are free dashboards (search traffic, which
