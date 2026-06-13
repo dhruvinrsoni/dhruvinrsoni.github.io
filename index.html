@@ -5,8 +5,10 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Dhruvin Soni</title>
-  <meta name="description" content="One-stop hub for Dhruvin Soni's projects, live demos, Chrome extensions, and profiles. Sort, filter, share, or scan." />
+  <!-- <title> shows in the browser tab AND is the headline in Google results; keep it ~60 chars. -->
+  <title>Dhruvin Soni — Senior Software Engineer · Apps, Projects & Profiles</title>
+  <!-- description = the grey snippet under the title in search results; ~150 chars, keyword-rich. -->
+  <meta name="description" content="One-stop hub for Dhruvin Soni's web apps, PWAs, Chrome extensions, live demos, open-source projects, and developer profiles. Sort, filter, share, or scan." />
   <meta name="keywords" content="Dhruvin Soni, portfolio, dashboard, Chrome extension, PWA, AI tooling, GitHub projects, Zebra Technologies" />
   <meta name="author" content="Dhruvin Soni" />
 
@@ -22,22 +24,23 @@
   <!-- ============ Open Graph (Facebook, LinkedIn, Slack, Discord, iMessage) ============ -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Dhruvin Soni" />
-  <meta property="og:title" content="Dhruvin Soni" />
-  <meta property="og:description" content="One-stop hub for projects, live demos, Chrome extensions, and profiles." />
+  <meta property="og:title" content="Dhruvin Soni — Senior Software Engineer · Apps, Projects & Profiles" />
+  <meta property="og:description" content="One-stop hub for Dhruvin Soni's web apps, PWAs, Chrome extensions, live demos, open-source projects, and developer profiles. Sort, filter, share, or scan." />
   <meta property="og:url" content="https://dhruvinrsoni.github.io/" />
   <meta property="og:locale" content="en_US" />
-  <!-- TODO: replace with a real 1200x630 PNG once you create one. -->
+  <!-- og:image must be an ABSOLUTE URL; 1200x630 is the size every platform crops cleanly. -->
   <meta property="og:image" content="https://dhruvinrsoni.github.io/og-image.png" />
   <meta property="og:image:alt" content="Dhruvin Soni — project dashboard" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
 
   <!-- ============ Twitter Cards (X / Twitter) ============ -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@dhruvinrsoni" />
   <meta name="twitter:creator" content="@dhruvinrsoni" />
-  <meta name="twitter:title" content="Dhruvin Soni" />
-  <meta name="twitter:description" content="One-stop hub for projects, live demos, Chrome extensions, and profiles." />
+  <meta name="twitter:title" content="Dhruvin Soni — Senior Software Engineer · Apps, Projects & Profiles" />
+  <meta name="twitter:description" content="One-stop hub for Dhruvin Soni's web apps, PWAs, Chrome extensions, live demos, open-source projects, and developer profiles. Sort, filter, share, or scan." />
   <meta name="twitter:image" content="https://dhruvinrsoni.github.io/og-image.png" />
   <meta name="twitter:image:alt" content="Dhruvin Soni — project dashboard" />
 
@@ -56,22 +59,25 @@
   <meta name="msapplication-config" content="none" />
 
   <!-- ============ Favicons (multiple formats for full coverage) ============ -->
+  <!-- Primary favicon = inline SVG emoji (crisp at any size, zero requests). -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B1%3C/text%3E%3C/svg%3E" />
-  <!-- TODO: PNG fallbacks for older browsers
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0a84ff" />
-  -->
+  <!-- PNG fallback for browsers that ignore SVG favicons — reuses the existing PWA icon. -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/rocket-space/icon-192.png" />
 
   <!-- ============ Web App Manifest (PWA) ============ -->
+  <!-- Tells the browser this is installable (name, icons, colors). See manifest.webmanifest. -->
   <link rel="manifest" href="manifest.webmanifest" />
 
-  <!-- ============ Search engine verification (commented placeholders) ============ -->
-  <!-- <meta name="google-site-verification" content="YOUR_CODE_HERE" /> -->
-  <!-- <meta name="msvalidate.01" content="YOUR_BING_CODE_HERE" /> -->
+  <!-- ============ Search engine verification ============ -->
+  <!-- Proves site ownership to Google Search Console / Bing Webmaster Tools (search dashboards). -->
+  <meta name="google-site-verification" content="RvVjfHmcmarItOMXqYEVsX-wSG9bMX2k_YPsQAE3lAU" />
+  <meta name="msvalidate.01" content="D2E7442F5375C26E70EC5F1EB59973F7" />
 
   <!-- ============ Resource hints (performance) ============ -->
-  <!-- preconnect removed: QR API is fetched on user interaction only — dns-prefetch is sufficient -->
+  <!-- Warm up connections to third-party origins so first asset/image loads faster. -->
+  <link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.simpleicons.org" />
+  <!-- QR API is only hit on user interaction, so dns-prefetch (lighter than preconnect) is enough. -->
   <link rel="dns-prefetch" href="https://api.qrserver.com" />
 
   <!-- ============ Schema.org structured data (JSON-LD) ============ -->
