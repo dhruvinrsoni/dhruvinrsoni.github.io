@@ -108,6 +108,14 @@ const PROJECTS = [
     primary: 'live'
   },
   {
+    id: 'kaushal-forge', name: 'KaushalForge', emoji: '📄',
+    type: 'Résumé Hub',
+    desc: 'AI-tailored résumés, cover letters, and job-search strategy — published as a clean résumé hub.',
+    repo: 'https://github.com/dhruvinrsoni/kaushal-forge',
+    live: 'https://dhruvinrsoni.github.io/kaushal-forge/',
+    primary: 'live'
+  },
+  {
     id: 'todolistapp', open: 'tab', name: 'To-Do List PWA', emoji: '✅',
     type: 'PWA',
     desc: 'Installable React to-do list — Progressive Web App hosted on Firebase.',
