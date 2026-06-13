@@ -196,6 +196,11 @@ footer.site a { color: var(--text-muted); }
   padding-top: 10px;
   border-top: 1px dashed var(--border);
 }
+.made-in-india {
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--text);
+}
 .footer-version code {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 11px;
