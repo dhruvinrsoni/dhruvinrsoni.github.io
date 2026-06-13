@@ -327,6 +327,26 @@ article.card.featured {
 }
 .modal-card .modal-close:hover { border-color: var(--border-strong); }
 
+/* iOS install sheet — numbered steps inside the shared modal card */
+.modal-card .ios-steps {
+  margin: 0;
+  padding-left: 22px;
+  align-self: stretch;
+  text-align: left;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.modal-card .ios-steps strong { font-weight: 700; }
+.ios-share-glyph {
+  display: inline-flex;
+  vertical-align: -3px;
+  color: var(--accent);
+}
+
 /* ----- Scroll-to-bottom FAB ----- */
 .scroll-bottom-btn {
   position: fixed;
