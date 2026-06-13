@@ -2,7 +2,7 @@
 // Two jobs: (1) offline support via caching, (2) provide a `fetch` handler, which
 // (together with PNG icons in the manifest) is what lets Android install this as a
 // real app/WebAPK instead of a plain home-screen bookmark.
-const CACHE = 'launchpad-v2';
+const CACHE = 'launchpad-v3';
 const CORE = [
   '/', '/index.html', '/manifest.webmanifest',
   '/styles/tokens.css', '/styles/base.css', '/styles/layout.css',
@@ -42,17 +42,16 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(fetch(req).catch(() => caches.match('/index.html')));
     return;
   }
-  // Same-origin static assets: cache-first, then populate the cache on miss.
+  // Same-origin static assets: stale-while-revalidate. Serve the cached copy instantly
+  // (fast, offline-friendly) but ALWAYS refetch in the background and update the cache,
+  // so the next load picks up a new deploy. (Cache-first would serve stale forever.)
   event.respondWith((async () => {
-    const cached = await caches.match(req);
-    if (cached) return cached;
-    try {
-      const res = await fetch(req);
-      const cache = await caches.open(CACHE);
+    const cache = await caches.open(CACHE);
+    const cached = await cache.match(req);
+    const network = fetch(req).then((res) => {
       cache.put(req, res.clone());
       return res;
-    } catch (err) {
-      return cached || Response.error();
-    }
+    }).catch(() => null);
+    return cached || (await network) || Response.error();
   })());
 });
