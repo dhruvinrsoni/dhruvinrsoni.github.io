@@ -84,6 +84,17 @@ function renderGrid() {
 // Inject a JSON-LD ItemList of the projects so search engines can read the project
 // list as structured data. Built from PROJECTS (the single source of truth) at runtime,
 // so the markup never drifts from the cards. Google executes JS, so it's indexed.
+// Notes:
+//  - offers = price 0 INR: every app is free/open-source (clears the "offers" warning).
+//  - aggregateRating / review are intentionally OMITTED — we never fabricate ratings
+//    (Google penalises fake review markup). Those non-critical warnings stay by design.
+//  - author references the Person node in index.html (#person); Google merges all JSON-LD
+//    on the page, so the project's creator/origin (incl. Made in India) flows from there.
+function appCategoryOf(p) {
+  if (/extension/i.test(p.type)) return 'BrowserApplication';
+  if (/game/i.test(p.type)) return 'GameApplication';
+  return 'DeveloperApplication';
+}
 function renderStructuredData() {
   const itemList = {
     '@context': 'https://schema.org',
@@ -97,8 +108,9 @@ function renderStructuredData() {
         name: p.name,
         description: p.desc,
         url: primaryUrlOf(p),
-        applicationCategory: /extension/i.test(p.type) ? 'BrowserApplication' : 'WebApplication',
+        applicationCategory: appCategoryOf(p),
         operatingSystem: 'Any',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         author: { '@type': 'Person', '@id': 'https://dhruvinrsoni.github.io/#person' }
       }
     }))
