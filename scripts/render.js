@@ -121,6 +121,13 @@ function renderProfileDeeplinks() {
 // ----- Brand pills (header socials + profile groups), config-driven from data.js -----
 function brandLogo(item) {
   if (!item.icon) return ICONS.external; // generic glyph fallback
+  // Prefer a local inline icon (accurate, offline; e.g. LinkedIn — removed from
+  // simple-icons — and GitHub). Falls back to the simple-icons CDN otherwise.
+  if (ICONS[item.icon]) {
+    const c = item.iconColor ? '#' + item.iconColor
+      : (typeof item.brand === 'string' && item.brand.charAt(0) === '#' ? item.brand : 'currentColor');
+    return '<span class="pill-logo" style="color:' + c + '">' + ICONS[item.icon] + '</span>';
+  }
   const color = item.iconColor ||
     (typeof item.brand === 'string' && item.brand.charAt(0) === '#' ? item.brand.slice(1) : '888888');
   const src = 'https://cdn.simpleicons.org/' + item.icon + '/' + color;

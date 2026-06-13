@@ -37,6 +37,7 @@
    brand colour on hover. --brand is set inline per pill from data.js. ----- */
 .pill--social { gap: 7px; transition: background .15s, border-color .15s, color .15s, transform .12s; }
 .pill--social .pill-logo { width: 15px; height: 15px; display: block; flex: 0 0 auto; }
+.pill--social .pill-logo svg { width: 100%; height: 100%; display: block; }
 .pill--social:hover {
   background: var(--brand, var(--accent));
   border-color: transparent;
