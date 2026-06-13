@@ -42,6 +42,9 @@
     row-gap: 6px;
   }
   [data-view="list"] .card-head { grid-area: head; display: flex; align-items: center; min-width: 0; }
+  /* Pill drops onto its own line below the name (left-aligned) so the name
+     gets the full first line instead of being squeezed by the pill. */
+  [data-view="list"] .card-title-block { flex-direction: column; align-items: flex-start; gap: 3px; flex: 1 1 auto; min-width: 0; }
   [data-view="list"] .card-actions { grid-area: actions; }
   [data-view="list"] .card-share { grid-area: share; padding-top: 0; }
   [data-view="list"] .card-desc {
