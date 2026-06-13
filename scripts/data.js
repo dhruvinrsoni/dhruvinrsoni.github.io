@@ -182,6 +182,7 @@ const SOCIALS = [
   { label: 'X / Twitter', url: 'https://twitter.com/dhruvinrsoni',          brand: '#000000', icon: 'x',         darkLogo: true },
   { label: 'YouTube',     url: 'https://www.youtube.com/@dhruvinrsoni',     brand: '#FF0000', icon: 'youtube' },
   { label: 'Instagram',   url: 'https://www.instagram.com/dhruvinrsoni',    brand: 'linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)', icon: 'instagram', iconColor: 'E4405F' },
+  { label: 'Facebook',    url: 'https://www.facebook.com/dhruvinrsoni',     brand: '#1877F2', icon: 'facebook' },
   { label: 'Credly',      url: 'https://credly.com/users/dhruvinrsoni',     brand: '#FF6B00', icon: 'credly' }
 ];
 
@@ -196,6 +197,9 @@ const PROFILE_GROUPS = [
   { label: 'Developer Profiles', links: [
     { label: 'Stack Overflow',    url: 'https://stackoverflow.com/users/15077282/dhruvinrsoni',                                          brand: '#F58025', icon: 'stackoverflow' },
     { label: 'Stack Exchange',    url: 'https://stackexchange.com/users/9085620/dhruvinrsoni?tab=accounts',                              brand: '#1E5397', icon: 'stackexchange' },
+    { label: 'Super User',        url: 'https://superuser.com/users/1266803/dhruvinrsoni',                                             brand: '#1E5397', icon: 'stackexchange' },
+    { label: 'Unix & Linux',      url: 'https://unix.stackexchange.com/users/586729/dhruvinrsoni',                                      brand: '#1E5397', icon: 'stackexchange' },
+    { label: 'DBA',               url: 'https://dba.stackexchange.com/users/225107/dhruvinrsoni',                                       brand: '#1E5397', icon: 'stackexchange' },
     { label: 'Google Developers', url: 'https://developers.google.com/profile/u/dhruvinrsoni',                                          brand: '#4285F4', icon: 'google' },
     { label: 'GC Skills Boost',   url: 'https://www.cloudskillsboost.google/public_profiles/963de973-47b9-49f7-85c4-8cd882b597e3',      brand: '#4285F4', icon: 'googlecloud' },
     { label: 'Microsoft Learn',   url: 'https://learn.microsoft.com/en-us/users/dhruvinrsoni',                                          brand: '#0078D4', icon: 'microsoft' },
@@ -207,6 +211,10 @@ const PROFILE_GROUPS = [
     { label: 'HackerRank',    url: 'https://www.hackerrank.com/profile/DhruvinSoni',   brand: '#00EA64', icon: 'hackerrank' },
     { label: 'CodeChef',      url: 'https://www.codechef.com/users/dhruvinrsoni',      brand: '#5B4638', icon: 'codechef', darkLogo: true },
     { label: 'GeeksforGeeks', url: 'https://www.geeksforgeeks.org/user/dhruvinrsoni/', brand: '#2F8D46', icon: 'geeksforgeeks' }
+  ]},
+  { label: 'Work · Zebra', links: [
+    { label: 'GitHub (Zebra)',            url: 'https://github.com/dhruvinrsoni-zebra',                          brand: '#181717', icon: 'github', darkLogo: true },
+    { label: 'Google Developers (Zebra)', url: 'https://developers.google.com/profile/u/dhruvinrsoni-zebra',     brand: '#4285F4', icon: 'google' }
   ]}
 ];
 
