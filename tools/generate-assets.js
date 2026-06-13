@@ -14,9 +14,9 @@ const WORKSPACE_ROOT = path.resolve(__dirname, '..', '..');
 
 const sites = [
   {
-    name: 'Launchpad',
+    name: 'Dhruvin Soni — Launchpad',
     dir: 'dhruvinrsoni.github.io',
-    tagline: 'GitHub Pages Hub',
+    tagline: 'Projects, Apps & Profiles',
   },
   {
     name: 'Portfolio',
