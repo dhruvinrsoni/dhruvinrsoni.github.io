@@ -3,15 +3,17 @@
 // Depends on: nothing.
 
 // ---------- Project data ----------
-// ---------- Link open behaviour (configurable) ----------
-// How a project's links open when tapped from the hub:
-//   'app' = same window (stays inside the installed app — seamless in-app feel)
-//   'tab' = new browser tab (the project keeps its OWN PWA install / identity)
-// Cross-origin links ALWAYS open in a new tab regardless of this setting.
-// Per-project override: add `open: 'tab'` (or `open: 'app'`) to a project below.
-// Installable PWAs are set to 'tab' so installing the hub never shadows their
-// own install. Non-PWA same-origin pages use OPEN_DEFAULT (the master switch).
-const OPEN_DEFAULT = 'app';   // <-- flip to 'tab' to make every non-PWA page open in a new tab
+// ---------- Link open behaviour (configurable framework) ----------
+// Every card link (Live / Repo / Web Store / extras) is routed through openAttr()
+// in render.js — there is ONE switch, so changing it here flips behaviour everywhere.
+//   'tab' = FORCE a new browser tab — keeps the Launchpad open behind it (and a child
+//           PWA keeps its own install identity).
+//   'app' = FORCE same window — stay inside the Launchpad PWA. Only use for links that
+//           ARE the Launchpad itself (e.g. the Home card); a separate app/site should be 'tab'.
+// Cross-origin links (github.com, vercel, firebase, notion, chromewebstore…) ALWAYS open
+// in a new tab regardless of this setting — only SAME-ORIGIN links honour the flag.
+// Per-project override: add `open: 'tab'` / `open: 'app'` to a project below.
+const OPEN_DEFAULT = 'tab';   // hub default: open project sites in a new tab so the Launchpad stays put
 
 const PROJECTS = [
   {
@@ -143,7 +145,7 @@ const PROJECTS = [
     primary: 'live'
   },
   {
-    id: 'dhruvinrsoni-github-io', name: 'Home', emoji: '🏠',
+    id: 'dhruvinrsoni-github-io', open: 'app', name: 'Home', emoji: '🏠',
     type: 'Project Hub',
     desc: "One-stop hub for Dhruvin Soni's projects, live demos, Chrome extensions, and profiles.",
     repo: 'https://github.com/dhruvinrsoni/dhruvinrsoni.github.io',
