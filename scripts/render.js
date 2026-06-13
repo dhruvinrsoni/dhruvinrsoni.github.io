@@ -81,6 +81,34 @@ function renderGrid() {
   $('#project-count').textContent = `${PROJECTS.length} repos`;
 }
 
+// Inject a JSON-LD ItemList of the projects so search engines can read the project
+// list as structured data. Built from PROJECTS (the single source of truth) at runtime,
+// so the markup never drifts from the cards. Google executes JS, so it's indexed.
+function renderStructuredData() {
+  const itemList = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Dhruvin Soni — Projects',
+    itemListElement: PROJECTS.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': /extension/i.test(p.type) ? 'BrowserApplication' : 'WebApplication',
+        name: p.name,
+        description: p.desc,
+        url: primaryUrlOf(p),
+        applicationCategory: /extension/i.test(p.type) ? 'BrowserApplication' : 'WebApplication',
+        operatingSystem: 'Any',
+        author: { '@type': 'Person', '@id': 'https://dhruvinrsoni.github.io/#person' }
+      }
+    }))
+  };
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(itemList);
+  document.head.appendChild(script);
+}
+
 function renderProfileDeeplinks() {
   const link = (anchor, label) => {
     const a = document.createElement('a');

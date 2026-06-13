@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Hide native share button on header if unsupported.
   if (!canShare) $('#share-page-share').hidden = true;
   renderGrid();
+  renderStructuredData();
   bindCardEvents();
   bindHeaderEvents();
   initTheme();
