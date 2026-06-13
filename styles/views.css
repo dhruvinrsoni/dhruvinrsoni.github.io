@@ -110,9 +110,14 @@
 [data-view="compact"] .card-desc,
 [data-view="compact"] .card-actions,
 [data-view="compact"] .card-share .card-share-label,
-[data-view="compact"] .card-share .js-share,
+[data-view="compact"] .card-share .js-copy,
 [data-view="compact"] .card-share .js-qr { display: none; }
-[data-view="compact"] .card-share { padding: 0; border-top: 0; }
+/* compact: only the share button, pinned to the right so it lines up across
+   rows regardless of how long the project name is */
+[data-view="compact"] .card-head { flex: 1 1 auto; min-width: 0; }
+[data-view="compact"] .card-title { flex: 0 1 auto; min-width: 0; }
+[data-view="compact"] .card-title h3 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+[data-view="compact"] .card-share { padding: 0; border-top: 0; margin-left: auto; }
 [data-view="compact"] .card-share .icon-btn { width: 32px; height: 32px; }
 
 /* List & compact rows open on tap (handled in share.js) — hint it. */
