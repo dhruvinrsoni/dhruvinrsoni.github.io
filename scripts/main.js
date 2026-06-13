@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   bindCardEvents();
   bindHeaderEvents();
   initTheme();
+  renderQuicklinks();
+  renderProfiles();
   renderProfileDeeplinks();
   initSortBar();
   initViewBar();

@@ -110,6 +110,37 @@ function renderProfileDeeplinks() {
   // 3. Footer — append all footer entries to the existing container.
   const footerSlot = document.querySelector('.footer-deeplinks');
   if (footerSlot) {
-    PROFILE_DEEPLINKS.footer.forEach(d => footerSlot.appendChild(link(d.anchor, d.label)));
+    PROFILE_DEEPLINKS.footer.forEach(d => {
+      const a = link(d.anchor, (d.icon ? d.icon + ' ' : '') + d.label);
+      a.className = 'footer-chip';
+      footerSlot.appendChild(a);
+    });
   }
+}
+
+// ----- Brand pills (header socials + profile groups), config-driven from data.js -----
+function brandLogo(item) {
+  if (!item.icon) return ICONS.external; // generic glyph fallback
+  const color = item.iconColor ||
+    (typeof item.brand === 'string' && item.brand.charAt(0) === '#' ? item.brand.slice(1) : '888888');
+  const src = 'https://cdn.simpleicons.org/' + item.icon + '/' + color;
+  return '<img class="pill-logo" src="' + src + '" alt="" width="15" height="15" loading="lazy" onerror="this.remove()">';
+}
+function brandPill(item) {
+  const cls = 'pill pill--social' + (item.darkLogo ? ' is-dark-logo' : '');
+  const brand = (typeof item.brand === 'string') ? item.brand : '';
+  return '<a class="' + cls + '" style="--brand:' + brand + '" href="' + escapeHtml(item.url) +
+    '" target="_blank" rel="noopener">' + brandLogo(item) + '<span>' + escapeHtml(item.label) + '</span></a>';
+}
+function renderQuicklinks() {
+  const el = document.querySelector('[data-quicklinks]');
+  if (el && typeof SOCIALS !== 'undefined') el.innerHTML = SOCIALS.map(brandPill).join('');
+}
+function renderProfiles() {
+  const el = document.querySelector('[data-profiles]');
+  if (!el || typeof PROFILE_GROUPS === 'undefined') return;
+  el.innerHTML = PROFILE_GROUPS.map(g =>
+    '<div class="profile-group"><div class="profile-group-label">' + escapeHtml(g.label) +
+    '</div><div class="pills">' + g.links.map(brandPill).join('') + '</div></div>'
+  ).join('');
 }

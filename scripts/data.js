@@ -164,12 +164,51 @@ const PROFILE_DEEPLINKS = {
   tagline:      { label: 'About me →',   anchor: '#-about-me' },
   sectionTitle: { label: 'Tech Stack ↗', anchor: '#-tech-stack' },
   footer: [
-    { label: 'Journey', anchor: '#-timeline-of-achievements' },
-    { label: 'Blogs',   anchor: '#blogs' },
-    { label: 'Badges',  anchor: '#badgescertificates' },
-    { label: 'Contact', anchor: '#-how-to-reach-me' }
+    { label: 'Journey', anchor: '#-timeline-of-achievements', icon: '⏳' },
+    { label: 'Blogs',   anchor: '#blogs', icon: '✍️' },
+    { label: 'Badges',  anchor: '#badgescertificates', icon: '🏅' },
+    { label: 'Contact', anchor: '#-how-to-reach-me', icon: '✉️' }
   ]
 };
+
+// ---------- Social + profile links (config-driven — edit here to add/remove/reorder) ----------
+// brand   = platform colour, used for the pill's fill-on-hover (a CSS gradient is allowed).
+// icon    = simple-icons slug; the logo is served from cdn.simpleicons.org (a bad slug just
+//           falls back to the text label via onerror). Omit `icon` to use a generic glyph.
+// darkLogo= true for near-black logos (GitHub, X) so they stay visible on the dark theme.
+const SOCIALS = [
+  { label: 'GitHub',      url: 'https://github.com/dhruvinrsoni',            brand: '#181717', icon: 'github',    darkLogo: true },
+  { label: 'LinkedIn',    url: 'https://www.linkedin.com/in/dhruvinrsoni/', brand: '#0A66C2', icon: 'linkedin' },
+  { label: 'X / Twitter', url: 'https://twitter.com/dhruvinrsoni',          brand: '#000000', icon: 'x',         darkLogo: true },
+  { label: 'YouTube',     url: 'https://www.youtube.com/@dhruvinrsoni',     brand: '#FF0000', icon: 'youtube' },
+  { label: 'Instagram',   url: 'https://www.instagram.com/dhruvinrsoni',    brand: 'linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)', icon: 'instagram', iconColor: 'E4405F' },
+  { label: 'Credly',      url: 'https://credly.com/users/dhruvinrsoni',     brand: '#FF6B00', icon: 'credly' }
+];
+
+const PROFILE_GROUPS = [
+  { label: 'GitHub', links: [
+    { label: 'Overview',     url: 'https://github.com/dhruvinrsoni',                  brand: '#181717', icon: 'github', darkLogo: true },
+    { label: 'Repositories', url: 'https://github.com/dhruvinrsoni?tab=repositories', brand: '#181717', icon: 'github', darkLogo: true },
+    { label: 'Projects',     url: 'https://github.com/dhruvinrsoni?tab=projects',     brand: '#181717', icon: 'github', darkLogo: true },
+    { label: 'Packages',     url: 'https://github.com/dhruvinrsoni?tab=packages',     brand: '#181717', icon: 'github', darkLogo: true },
+    { label: 'Stars',        url: 'https://github.com/dhruvinrsoni?tab=stars',        brand: '#181717', icon: 'github', darkLogo: true }
+  ]},
+  { label: 'Developer Profiles', links: [
+    { label: 'Stack Overflow',    url: 'https://stackoverflow.com/users/15077282/dhruvinrsoni',                                          brand: '#F58025', icon: 'stackoverflow' },
+    { label: 'Stack Exchange',    url: 'https://stackexchange.com/users/9085620/dhruvinrsoni?tab=accounts',                              brand: '#1E5397', icon: 'stackexchange' },
+    { label: 'Google Developers', url: 'https://developers.google.com/profile/u/dhruvinrsoni',                                          brand: '#4285F4', icon: 'google' },
+    { label: 'GC Skills Boost',   url: 'https://www.cloudskillsboost.google/public_profiles/963de973-47b9-49f7-85c4-8cd882b597e3',      brand: '#4285F4', icon: 'googlecloud' },
+    { label: 'Microsoft Learn',   url: 'https://learn.microsoft.com/en-us/users/dhruvinrsoni',                                          brand: '#0078D4', icon: 'microsoft' },
+    { label: 'Credly',            url: 'https://credly.com/users/dhruvinrsoni',                                                         brand: '#FF6B00', icon: 'credly' },
+    { label: 'Quora',             url: 'https://www.quora.com/profile/Dhruvin-Soni-1/',                                                 brand: '#B92B27', icon: 'quora' }
+  ]},
+  { label: 'Competitive Coding', links: [
+    { label: 'LeetCode',      url: 'https://leetcode.com/u/dhruvinrsoni/',             brand: '#FFA116', icon: 'leetcode' },
+    { label: 'HackerRank',    url: 'https://www.hackerrank.com/profile/DhruvinSoni',   brand: '#00EA64', icon: 'hackerrank' },
+    { label: 'CodeChef',      url: 'https://www.codechef.com/users/dhruvinrsoni',      brand: '#5B4638', icon: 'codechef', darkLogo: true },
+    { label: 'GeeksforGeeks', url: 'https://www.geeksforgeeks.org/user/dhruvinrsoni/', brand: '#2F8D46', icon: 'geeksforgeeks' }
+  ]}
+];
 
 // ---------- Tiny utilities ----------
 const $ = (sel, root = document) => root.querySelector(sel);
