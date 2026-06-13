@@ -20,4 +20,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollBottom();
   initVersionFooter();
   initInstallButton();
+  initUpdateButton();
 });

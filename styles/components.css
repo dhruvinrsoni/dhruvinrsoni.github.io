@@ -347,6 +347,13 @@ article.card.featured {
   color: var(--accent);
 }
 
+/* "Update" button spins while it clears caches + reloads */
+.icon-btn.spinning svg { animation: icon-spin 0.8s linear infinite; }
+@keyframes icon-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .icon-btn.spinning svg { animation: none; }
+}
+
 /* ----- Scroll-to-bottom FAB ----- */
 .scroll-bottom-btn {
   position: fixed;

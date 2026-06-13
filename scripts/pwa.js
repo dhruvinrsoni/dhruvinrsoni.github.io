@@ -91,3 +91,27 @@ function initInstallButton() {
     btn.hidden = true;
   });
 }
+
+// "Update" button — force-pull the latest. The service worker serves assets from a
+// cache, so a manual escape hatch matters: clear all Cache Storage, ask the SW to check
+// for an update, then reload. localStorage (theme / view prefs) is intentionally kept —
+// this refreshes the code, it is not a destructive "wipe everything".
+function initUpdateButton() {
+  const btn = $('#refresh-app');
+  if (!btn) return;
+  btn.addEventListener('click', async () => {
+    if (btn.classList.contains('spinning')) return;
+    btn.classList.add('spinning');
+    try {
+      if ('caches' in window) {
+        const keys = await caches.keys();
+        await Promise.all(keys.map((k) => caches.delete(k)));
+      }
+      if ('serviceWorker' in navigator) {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map((r) => r.update().catch(() => {})));
+      }
+    } catch (_) { /* best-effort */ }
+    location.reload();
+  });
+}
