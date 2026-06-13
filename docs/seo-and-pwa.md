@@ -114,8 +114,18 @@ A plain-words tour of every search/social/installability tag on the Launchpad, o
 
 - **Manifest** (`manifest.webmanifest`): name, icons (192/512 + maskable), colors, `display:
   standalone`. This is what makes a site "installable."
-- **Service worker** (`sw.js`): caches the shell so it opens offline (network-first for pages,
-  cache-first for assets).
+- **Service worker** (`sw.js`): caches the site so it opens offline. Pages are **network-first**
+  (always fresh when online); assets are **stale-while-revalidate** (serve the cached copy instantly,
+  then refetch in the background so the *next* load is up to date).
+- **Why content can look stale:** a service worker keeps serving its cached copy until a *new* SW
+  takes over. If the SW file itself isn't changed, old cached JS/CSS can linger. We bump the cache
+  name on meaningful changes and use stale-while-revalidate so updates self-propagate within a load
+  or two.
+- **Update button** (`scripts/pwa.js`, the ↻ in the header): the manual escape hatch — clears all
+  caches, asks the SW to check for an update, and reloads to pull the latest. It keeps your theme /
+  view preferences (it refreshes code, not settings). Handy on iOS, which has no easy cache-clear UI.
+- **Clearing manually on iOS** (rarely needed now): *Chrome* → ⋯ → Settings → Privacy → Clear
+  Browsing Data; *Safari* → iOS Settings → Apps → Safari → Clear History and Website Data.
 - **Install button** (`scripts/pwa.js`): on **Android/desktop Chrome/Edge**, the browser fires a
   `beforeinstallprompt` event — we catch it and show our own Install button so it's easy to find.
 - **iPhone reality (important):** Apple does **not** support `beforeinstallprompt` in *any* iOS
