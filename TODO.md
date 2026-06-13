@@ -25,12 +25,15 @@ Repo: `dhruvinrsoni/dhruvinrsoni.github.io`
       Used by: `<meta property="og:image">` and `<meta name="twitter:image">` in `index.html`.
 - [x] Create `apple-touch-icon.png` (180×180) at repo root.
       Used by: `<link rel="apple-touch-icon">` in `index.html`.
-- [ ] Optional: create `favicon-32x32.png` + `favicon-16x16.png` PNG fallbacks
-      for older browsers (currently using inline SVG only). Uncomment the
-      relevant `<link rel="icon" ...>` lines in `index.html`.
-- [ ] Optional: claim ownership in Google Search Console + Bing Webmaster,
-      then fill in commented placeholders in `index.html`:
-      `<meta name="google-site-verification">` and `<meta name="msvalidate.01">`.
+- [x] PNG favicon fallback wired — reuses `icons/rocket-space/icon-192.png`
+      via `<link rel="icon" type="image/png">` (no new 16/32 binaries needed).
+- [x] Claimed ownership in Google Search Console + Bing Webmaster — real
+      `google-site-verification` + `msvalidate.01` tags are live in `index.html`.
+      (Next: submit `sitemap.xml` in each dashboard.)
+- [x] Added `sitemap.xml` + `robots.txt` at repo root.
+- [x] Documented the full SEO + PWA setup in `docs/seo-and-pwa.md` (plain words).
+- [x] iOS install sheet — the Install button now teaches Share → Add to Home
+      Screen on iPhone (Apple blocks automatic PWA install prompts).
 
 ## Portfolio — https://dhruvinrsoni.github.io/dhruvinrsoni/
 
