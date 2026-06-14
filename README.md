@@ -93,6 +93,14 @@ Source for the Launchpad — one-stop hub for projects, demos, extensions, and p
 
 ---
 
+## Webmaster & SEO
+
+**Dashboards** — [Google Search Console](https://search.google.com/search-console) · [Bing Webmaster Tools](https://www.bing.com/webmasters)
+
+**Validate** — [Rich Results Test](https://search.google.com/test/rich-results) · [metatags.io](https://metatags.io/)
+
+---
+
 **From /dhruvinrsoni:** [Journey](https://dhruvinrsoni.github.io/dhruvinrsoni/#-timeline-of-achievements) · [Blogs](https://dhruvinrsoni.github.io/dhruvinrsoni/#blogs) · [Badges](https://dhruvinrsoni.github.io/dhruvinrsoni/#badgescertificates)
 
 > 📱 For a phone-friendly dashboard with **copy-link, native share, and QR codes** per project, open the live site: <https://dhruvinrsoni.github.io/>

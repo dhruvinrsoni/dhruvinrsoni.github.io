@@ -29,7 +29,7 @@ Repo: `dhruvinrsoni/dhruvinrsoni.github.io`
       via `<link rel="icon" type="image/png">` (no new 16/32 binaries needed).
 - [x] Claimed ownership in Google Search Console + Bing Webmaster — real
       `google-site-verification` + `msvalidate.01` tags are live in `index.html`.
-      (Next: submit `sitemap.xml` in each dashboard.)
+      (Next: submit `sitemap.xml` in [Google Search Console](https://search.google.com/search-console) + [Bing Webmaster Tools](https://www.bing.com/webmasters).)
 - [x] Added `sitemap.xml` + `robots.txt` at repo root.
 - [x] Documented the full SEO + PWA setup in `docs/seo-and-pwa.md` (plain words).
 - [x] iOS install sheet — the Install button now teaches Share → Add to Home

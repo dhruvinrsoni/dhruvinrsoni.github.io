@@ -97,6 +97,7 @@ A plain-words tour of every search/social/installability tag on the Launchpad, o
   on a SoftwareApplication, so origin is declared via the creator Person — the correct way.
 
 ## 13. Search-engine verification
+- **Dashboards:** [Google Search Console](https://search.google.com/search-console) · [Bing Webmaster Tools](https://www.bing.com/webmasters)
 - **Why:** Google Search Console & Bing Webmaster Tools are free dashboards (search traffic, which
   queries find you, indexing/crawl errors, sitemap submission). To use them you must prove you own
   the site — the simplest way is a verification `<meta>` tag.
