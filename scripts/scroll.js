@@ -13,7 +13,14 @@ function initScrollBottom() {
     btn.classList.toggle('visible', hasContent && !nearBottom);
   };
   btn.addEventListener('click', () => {
-    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+    // Lazy-loaded images below the fold grow the page mid-scroll, so a single smooth
+    // scroll lands short — re-assert the true bottom for a beat as the layout settles.
+    let tries = 8;
+    const toBottom = () => {
+      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+      if (--tries > 0) setTimeout(toBottom, 150);
+    };
+    toBottom();
   });
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
