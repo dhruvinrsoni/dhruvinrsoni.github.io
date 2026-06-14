@@ -14,7 +14,8 @@ const WORKSPACE_ROOT = path.resolve(__dirname, '..', '..');
 
 const sites = [
   {
-    name: 'Dhruvin Soni — Launchpad',
+    name: 'Dhruvin Soni',
+    handle: '@dhruvinrsoni',
     dir: 'dhruvinrsoni.github.io',
     tagline: 'Projects, Apps & Profiles',
   },
@@ -40,9 +41,11 @@ const sites = [
 
 const COLORS = {
   bgDark: '#0d1117',
+  bgElev: '#161b22',
   textPrimary: '#e6edf3',
   textMuted: '#8b949e',
   accentBlue: '#0a84ff',
+  accentLight: '#58a6ff',
 };
 
 /**
@@ -57,12 +60,16 @@ function escapeXml(str) {
 
 /**
  * Generate SVG for og-image (1200×630)
- * Layout: left accent bar, centered site name + tagline
+ * Layout: gradient background + accent glow, gradient accent bar, optional @handle
+ * (branding), large site name, muted tagline.
  */
-function generateOgImageSvg(siteName, tagline) {
+function generateOgImageSvg(siteName, tagline, handle) {
   const safeName = escapeXml(siteName);
   const safeTagline = escapeXml(tagline);
-  const svg = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="630" fill="${COLORS.bgDark}"/><rect width="12" height="630" fill="${COLORS.accentBlue}"/><text x="120" y="280" font-family="Arial, sans-serif" font-size="72" font-weight="600" fill="${COLORS.textPrimary}">${safeName}</text><text x="120" y="340" font-family="Arial, sans-serif" font-size="32" fill="${COLORS.textMuted}">${safeTagline}</text></svg>`;
+  const handleText = handle
+    ? `<text x="124" y="250" font-family="Arial, sans-serif" font-size="34" font-weight="600" letter-spacing="1.5" fill="${COLORS.accentLight}">${escapeXml(handle)}</text>`
+    : '';
+  const svg = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${COLORS.bgDark}"/><stop offset="1" stop-color="${COLORS.bgElev}"/></linearGradient><linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${COLORS.accentLight}"/><stop offset="1" stop-color="${COLORS.accentBlue}"/></linearGradient><radialGradient id="glow" cx="0.82" cy="0.85" r="0.55"><stop offset="0" stop-color="${COLORS.accentBlue}" stop-opacity="0.22"/><stop offset="1" stop-color="${COLORS.accentBlue}" stop-opacity="0"/></radialGradient></defs><rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#glow)"/><rect width="16" height="630" fill="url(#bar)"/>${handleText}<text x="120" y="338" font-family="Arial, sans-serif" font-size="88" font-weight="700" fill="${COLORS.textPrimary}">${safeName}</text><text x="124" y="402" font-family="Arial, sans-serif" font-size="34" fill="${COLORS.textMuted}">${safeTagline}</text></svg>`;
   return svg;
 }
 
@@ -83,7 +90,7 @@ function generateAppleTouchIconSvg(siteName) {
   return svg;
 }
 
-async function generateAssetsForSite(site) {
+async function generateAssetsForSite(site, ogOnly) {
   const baseDir = path.join(WORKSPACE_ROOT, site.dir);
   const outputDir = site.subdir ? path.join(baseDir, site.subdir) : baseDir;
 
@@ -95,10 +102,12 @@ async function generateAssetsForSite(site) {
 
   try {
     // Generate og-image.png (1200×630)
-    const ogImageSvg = generateOgImageSvg(site.name, site.tagline);
+    const ogImageSvg = generateOgImageSvg(site.name, site.tagline, site.handle);
     const ogImagePath = path.join(outputDir, 'og-image.png');
     await sharp(Buffer.from(ogImageSvg)).png().toFile(ogImagePath);
     console.log(`  ✓ ${ogImagePath}`);
+
+    if (ogOnly) return;
 
     // Generate apple-touch-icon.png (180×180)
     const appleTouchSvg = generateAppleTouchIconSvg(site.name);
@@ -114,10 +123,21 @@ async function generateAssetsForSite(site) {
 async function main() {
   console.log('\n🎨 Generating PNG image assets for GitHub Pages sites\n');
 
+  // CLI: --site <dir> limits to one site; --og-only skips the apple-touch-icon.
+  const args = process.argv.slice(2);
+  const siteFilter = args.includes('--site') ? args[args.indexOf('--site') + 1] : null;
+  const ogOnly = args.includes('--og-only');
+  const targets = siteFilter ? sites.filter((s) => s.dir === siteFilter) : sites;
+
+  if (siteFilter && targets.length === 0) {
+    console.error(`❌ No site matches --site ${siteFilter}. Known: ${sites.map((s) => s.dir).join(', ')}`);
+    process.exit(1);
+  }
+
   try {
-    for (const site of sites) {
+    for (const site of targets) {
       console.log(`${site.name}:`);
-      await generateAssetsForSite(site);
+      await generateAssetsForSite(site, ogOnly);
       console.log();
     }
 
