@@ -11,9 +11,22 @@
 // The only path there is the manual Share → "Add to Home Screen". So on iOS we show
 // the button anyway and, on tap, open a small instruction sheet teaching that gesture.
 
+// Register the SW, and reveal the "Update" button ONLY when a newer worker is
+// installed and waiting — i.e. an update is genuinely available. On a fresh first
+// load (no controller yet) it stays hidden, so the header isn't cluttered.
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => { /* non-fatal */ });
+  window.addEventListener('load', async () => {
+    try {
+      const reg = await navigator.serviceWorker.register('/sw.js');
+      const revealRefresh = () => { const b = $('#refresh-app'); if (b) b.hidden = false; };
+      if (reg.waiting && navigator.serviceWorker.controller) revealRefresh();
+      reg.addEventListener('updatefound', () => {
+        const nw = reg.installing;
+        if (nw) nw.addEventListener('statechange', () => {
+          if (nw.state === 'installed' && navigator.serviceWorker.controller) revealRefresh();
+        });
+      });
+    } catch (_) { /* non-fatal */ }
   });
 }
 
