@@ -212,6 +212,18 @@ footer.site a { color: var(--text-muted); }
 .footer-version a { color: inherit; text-decoration: none; }
 .footer-version a:hover code { background: var(--accent-soft); color: var(--accent); }
 
+/* ----- Narrow screens: name on its own line, actions wrap below ----- */
+@media (max-width: 560px) {
+  .site-top { flex-wrap: wrap; }
+  .site-title { flex: 1 1 100%; }
+  .site-title h1 { white-space: nowrap; }
+  .site-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+
 /* ----- Larger screens ----- */
 @media (min-width: 700px) {
   .container {
