@@ -85,6 +85,8 @@ python -m http.server 8000
 ```
 No install step. Deploy by pushing `main` to GitHub Pages.
 
+For the Launchpad specifically there's a zero-dep Node dev server: `node tools/serve.mjs` (`--port` / `PORT` configurable) — proper `.webmanifest` MIME + no-cache headers. See `tools/README.md`.
+
 Add or edit a Launchpad card with `node tools/add-card.mjs` (zero-dep generator; `--update <id>`, `--validate`, `--dry-run`) — see `dhruvinrsoni.github.io/tools/README.md`.
 
 ### todolistapp (Create React App — legacy)

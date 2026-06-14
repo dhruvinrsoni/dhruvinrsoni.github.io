@@ -64,6 +64,27 @@ No build step: edit, run, then push `main` — GitHub Pages deploys automaticall
 
 ---
 
+## `serve.mjs` — local dev server (zero deps)
+
+Hosts the Launchpad locally for development — no `npm install`, just `node`. Serves the
+repo root with correct MIME types (incl. `.webmanifest`) and `no-cache` headers so edits
+show on reload.
+
+```bash
+node tools/serve.mjs                 # http://localhost:8000
+node tools/serve.mjs --port 5500     # custom port
+PORT=3000 node tools/serve.mjs       # via env var
+# or, from inside tools/:
+npm run serve
+```
+
+PWA note: once the service worker registers it caches the site, so new code can lag. Force
+fresh code with the in-header ↻ button, a hard-reload, or DevTools → Application → Service
+Workers → **Unregister**. (Equivalent to `python -m http.server 8000` from the repo root, but
+with proper manifest MIME + no-cache.)
+
+---
+
 ## `generate-assets.js` — PNG asset generator
 
 Generates `og-image.png` and `apple-touch-icon.png` for the GitHub Pages sites. Requires
