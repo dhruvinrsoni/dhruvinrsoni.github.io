@@ -15,6 +15,13 @@
 // Per-project override: add `open: 'tab'` / `open: 'app'` to a project below.
 const OPEN_DEFAULT = 'tab';   // hub default: open project sites in a new tab so the Launchpad stays put
 
+// ---------- Featured ★ ----------
+// `featured: true` hand-picks the flagship cards (render.js draws the ★ and a `featured` class).
+// NOT computed from GitHub stars/popularity — it's a deliberate curation. A project earns ★ only if it:
+//   1. is production-grade and actively maintained (not an origin/archive piece),
+//   2. has a real, usable live surface (store listing, hosted app, or public launch — not repo-only), and
+//   3. represents current focus (AI tooling, PWAs, or extensions).
+// Keep it to ~4 so the star stays meaningful.
 const PROJECTS = [
   {
     id: 'smruti-cortex', name: 'Smruti Cortex', sub: 'स्मृति', emoji: '🧠',
@@ -36,7 +43,7 @@ const PROJECTS = [
   },
   {
     id: 'cipher-alchemist', open: 'tab', name: 'Cipher Alchemist', emoji: '🔐',
-    type: 'PWA', featured: true,
+    type: 'PWA',
     desc: 'Secure, offline-capable phrase-to-password generator with custom rules.',
     repo: 'https://github.com/dhruvinrsoni/cipher-alchemist',
     live: 'https://dhruvinrsoni.github.io/cipher-alchemist/',
@@ -52,7 +59,7 @@ const PROJECTS = [
   },
   {
     id: 'ankura-array', name: 'Ankura Array', sub: 'अंकुर-Array', emoji: '🌱',
-    type: 'Nano-apps Hub',
+    type: 'Nano-apps Hub', featured: true,
     desc: 'Offline-first nano-apps incubator — Vaak-Smith and GenAI-Yukti-Deck inside.',
     repo: 'https://github.com/dhruvinrsoni/ankura-array',
     live: 'https://dhruvinrsoni.github.io/ankura-array/',
@@ -80,7 +87,7 @@ const PROJECTS = [
   },
   {
     id: 'agentskills-garden', open: 'tab', name: 'Agentskills Garden', emoji: '🌿',
-    type: 'AI Skill Library',
+    type: 'AI Skill Library', featured: true,
     desc: '88 hierarchical AI-agent skills, constitution-driven (Satya · Dharma · Ahimsa · Pragya).',
     repo: 'https://github.com/dhruvinrsoni/agentskills-garden',
     live: 'https://dhruvinrsoni.github.io/agentskills-garden/',

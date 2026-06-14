@@ -38,7 +38,9 @@ function setView(v) {
 // ---------- Derived data ----------
 function sortedProjects() {
   const cmp = SORTS[currentSort];
-  return cmp ? [...PROJECTS].sort(cmp) : PROJECTS;
+  if (cmp) return [...PROJECTS].sort(cmp);
+  // Default view: featured ★ first, original order preserved within each group (stable sort).
+  return [...PROJECTS].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
 }
 
 // ---------- View applier (mutates DOM attribute) ----------
