@@ -2,7 +2,7 @@
 // Two jobs: (1) offline support via caching, (2) provide a `fetch` handler, which
 // (together with PNG icons in the manifest) is what lets Android install this as a
 // real app/WebAPK instead of a plain home-screen bookmark.
-const CACHE = 'launchpad-v3';
+const CACHE = 'launchpad-v4';
 const CORE = [
   '/', '/index.html', '/manifest.webmanifest',
   '/styles/tokens.css', '/styles/base.css', '/styles/layout.css',
