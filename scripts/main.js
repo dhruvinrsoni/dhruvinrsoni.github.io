@@ -4,8 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   $('#year').textContent = new Date().getFullYear();
-  // Hide native share button on header if unsupported.
-  if (!canShare) $('#share-page-share').hidden = true;
   renderGrid();
   renderStructuredData();
   bindCardEvents();

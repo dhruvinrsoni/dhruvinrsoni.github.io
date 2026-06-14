@@ -86,11 +86,16 @@ function bindCardEvents() {
     const name = card.dataset.name;
     const desc = card.dataset.desc;
 
+    const shareBtn = ev.target.closest('.js-share');
+    if (shareBtn) {
+      ev.preventDefault();
+      if (canShare) nativeShare(name, desc, url);
+      else copyLink(url, name, shareBtn);
+      return;
+    }
+
     const copyBtn = ev.target.closest('.js-copy');
     if (copyBtn) { ev.preventDefault(); copyLink(url, name, copyBtn); return; }
-
-    const shareBtn = ev.target.closest('.js-share');
-    if (shareBtn) { ev.preventDefault(); nativeShare(name, desc, url); return; }
 
     const qrBtn = ev.target.closest('.js-qr');
     if (qrBtn) { ev.preventDefault(); openQR(url, name); return; }
@@ -111,13 +116,13 @@ function bindCardEvents() {
 }
 
 function bindHeaderEvents() {
+  // Share takes priority over Copy and is always available: native share where
+  // supported, otherwise it falls back to copying the link (never hidden).
+  $('#share-page-share').addEventListener('click', (e) => {
+    if (canShare) nativeShare(PAGE_TITLE, 'Dhruvin Soni — projects, demos, extensions.', PAGE_URL);
+    else copyLink(PAGE_URL, PAGE_TITLE, e.currentTarget);
+  });
   $('#share-page-copy').addEventListener('click', (e) => copyLink(PAGE_URL, PAGE_TITLE, e.currentTarget));
-  const sharePageBtn = $('#share-page-share');
-  if (canShare) {
-    sharePageBtn.addEventListener('click', () => nativeShare(PAGE_TITLE, 'Dhruvin Soni — projects, demos, extensions.', PAGE_URL));
-  } else {
-    sharePageBtn.hidden = true;
-  }
   $('#share-page-qr').addEventListener('click', () => openQR(PAGE_URL, PAGE_TITLE));
 
   $('#qr-close').addEventListener('click', closeQR);

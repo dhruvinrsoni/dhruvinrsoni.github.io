@@ -45,9 +45,8 @@ function renderCard(p) {
   const primaryUrl = primaryUrlOf(p);
   const subHtml = p.sub ? `<span class="card-sub">${escapeHtml(p.sub)}</span>` : '';
   const featuredStar = p.featured ? '<span class="featured-star" title="Featured">★</span>' : '';
-  const shareBtn = canShare
-    ? `<button class="icon-btn js-share" type="button" aria-label="Share ${escapeHtml(p.name)}" title="Share">${ICONS.share}</button>`
-    : '';
+  const shareBtn =
+    `<button class="icon-btn js-share" type="button" aria-label="Share ${escapeHtml(p.name)}" title="Share">${ICONS.share}<span class="copied-flash">Copied!</span></button>`;
   return `
     <article class="card${p.featured ? ' featured' : ''}" data-id="${escapeHtml(p.id)}" data-url="${escapeHtml(primaryUrl)}" data-name="${escapeHtml(p.name)}" data-desc="${escapeHtml(p.desc)}">
       <div class="card-head">
@@ -65,10 +64,10 @@ function renderCard(p) {
       <div class="card-actions">${renderActions(p)}</div>
       <div class="card-share">
         <span class="card-share-label">Share</span>
+        ${shareBtn}
         <button class="icon-btn js-copy" type="button" aria-label="Copy ${escapeHtml(p.name)} link" title="Copy link">
           ${ICONS.copy}<span class="copied-flash">Copied!</span>
         </button>
-        ${shareBtn}
         <button class="icon-btn js-qr" type="button" aria-label="QR for ${escapeHtml(p.name)}" title="QR code">${ICONS.qr}</button>
       </div>
     </article>
