@@ -37,9 +37,12 @@ const PROJECTS = [
     type: 'Web App / PWA', featured: true,
     desc: 'Multi-provider LLM chat UI — OpenAI, Anthropic, Google, Ollama, Azure.',
     repo: 'https://github.com/dhruvinrsoni/samvada-studio',
-    live: 'https://dhruvinrsoni.github.io/samvada-studio/',
+    live: 'https://samvada-studio.vercel.app/',
     producthunt: 'https://www.producthunt.com/products/samvada-studio',
-    primary: 'live'
+    primary: 'live',
+    extras: [
+      { label: 'GitHub Pages', url: 'https://dhruvinrsoni.github.io/samvada-studio/', icon: 'live' }
+    ]
   },
   {
     id: 'cipher-alchemist', open: 'tab', name: 'Cipher Alchemist', emoji: '🔐',
